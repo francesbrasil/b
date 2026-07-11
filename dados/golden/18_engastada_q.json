@@ -1,0 +1,38 @@
+{
+  "descricao": "Engastada em A (x=0), livre até 4; q=7 uniforme.",
+  "conferencia_manual": "Total 28@2; ΣM_A: M_A+2·(-28)=0 → M_A=56 (anti-horário).",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 4
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "terceiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 0,
+        "x_fim": 4,
+        "q_ini": -7,
+        "q_fim": -7
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 28.0,
+    "M_A": 56.0
+  }
+}

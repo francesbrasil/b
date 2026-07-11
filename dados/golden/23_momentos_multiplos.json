@@ -1,0 +1,45 @@
+{
+  "descricao": "Biapoiada L=8 com M=+15 em x=2 e M=-25 em x=5.",
+  "conferencia_manual": "ΣM_A: 15-25+8R_B=0 → R_B=1.25; ΣFy: R_A=-1.25.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 8
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "momento",
+        "x": 2,
+        "m": 15
+      },
+      {
+        "tipo": "momento",
+        "x": 5,
+        "m": -25
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": -1.25,
+    "R_B_y": 1.25
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "descricao": "Biapoiada L=6: trapezoidal 2→6 kN/m p/ baixo.",
+  "conferencia_manual": "Total (2+6)/2·6=24; x̄=6(2+2·6)/(3(2+6))=3.5; R_B=24·3.5/6=14; R_A=10.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 6
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 0,
+        "x_fim": 6,
+        "q_ini": -2,
+        "q_fim": -6
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 10.0,
+    "R_B_y": 14.0
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "descricao": "Gerber: apoios x=0 (2º), x=4 (1º), rótula x=6, apoio x=10 (1º); q=5 em [0,6] e P=8@8.",
+  "conferencia_manual": "Rot6 dir: 4R_C-8·2=0 → R_C=4. ΣM_A: 4R_B+10·4-30·3-8·8=0 → R_B=28.5. ΣFy: R_A=38-32.5=5.5.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 4
+      },
+      {
+        "id": "C",
+        "x": 10
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      },
+      {
+        "no": "C",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [
+      6
+    ],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 0,
+        "x_fim": 6,
+        "q_ini": -5,
+        "q_fim": -5
+      },
+      {
+        "tipo": "concentrada",
+        "x": 8,
+        "fy": -8,
+        "fx": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 5.5,
+    "R_B_y": 28.5,
+    "R_C_y": 4.0
+  }
+}

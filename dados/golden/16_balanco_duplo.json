@@ -1,0 +1,62 @@
+{
+  "descricao": "Balanço duplo: viga 0..10, apoios x=2/x=8; P=8 em cada ponta, q=4 no vão [2,8].",
+  "conferencia_manual": "ΣM_A: (-2)(-8)+(8)(-8)+(5-2)(-24)+6R_B=16-64-72+6R_B=0 → R_B=20; R_A=40-20=20.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "C",
+        "x": 0
+      },
+      {
+        "id": "A",
+        "x": 2
+      },
+      {
+        "id": "B",
+        "x": 8
+      },
+      {
+        "id": "D",
+        "x": 10
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "concentrada",
+        "x": 0,
+        "fy": -8,
+        "fx": 0
+      },
+      {
+        "tipo": "concentrada",
+        "x": 10,
+        "fy": -8,
+        "fx": 0
+      },
+      {
+        "tipo": "distribuida",
+        "x_ini": 2,
+        "x_fim": 8,
+        "q_ini": -4,
+        "q_fim": -4
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 20.0,
+    "R_B_y": 20.0
+  }
+}

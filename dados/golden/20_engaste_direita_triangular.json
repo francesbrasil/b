@@ -1,0 +1,38 @@
+{
+  "descricao": "Engaste à DIREITA (x=6), livre 0..6; triangular 6→0 kN/m.",
+  "conferencia_manual": "Total 18@x=2; ΣM_B: M_B+(2-6)(-18)=M_B+72=0 → M_B=-72 (horário).",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 6
+      }
+    ],
+    "apoios": [
+      {
+        "no": "B",
+        "tipo": "terceiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 0,
+        "x_fim": 6,
+        "q_ini": -6,
+        "q_fim": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_B_x": 0.0,
+    "R_B_y": 18.0,
+    "M_B": -72.0
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "descricao": "Biapoiada L=5 só com momento M=+20 (anti-horário) em x=2: binário de reações.",
+  "conferencia_manual": "ΣM_A: 20+5R_B=0 → R_B=-4 (p/ baixo); ΣFy: R_A=+4.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 5
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "momento",
+        "x": 2,
+        "m": 20
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 4.0,
+    "R_B_y": -4.0
+  }
+}

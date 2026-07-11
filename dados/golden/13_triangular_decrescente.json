@@ -1,0 +1,42 @@
+{
+  "descricao": "Biapoiada L=8: triangular 9→0 kN/m p/ baixo.",
+  "conferencia_manual": "Total 36 no centroide 8/3; R_B=36·(8/3)/8=12; R_A=24.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 8
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 0,
+        "x_fim": 8,
+        "q_ini": -9,
+        "q_fim": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 24.0,
+    "R_B_y": 12.0
+  }
+}

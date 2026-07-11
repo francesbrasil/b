@@ -1,0 +1,47 @@
+{
+  "descricao": "Biapoiada L=7: Fx=-12 em x=2 e P=14 p/ baixo em x=5.",
+  "conferencia_manual": "ΣFx: R_A_x-12=0 → +12; ΣM_A: 7R_B-14·5=0 → R_B=10; R_A_y=4.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 7
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "concentrada",
+        "x": 2,
+        "fy": 0,
+        "fx": -12
+      },
+      {
+        "tipo": "concentrada",
+        "x": 5,
+        "fy": -14,
+        "fx": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 12.0,
+    "R_A_y": 4.0,
+    "R_B_y": 10.0
+  }
+}

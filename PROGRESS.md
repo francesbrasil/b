@@ -4,18 +4,22 @@
 
 ## Estado atual
 - Solver de REAÇÕES de vigas isostáticas funcionando (incl. balanço, Gerber, cargas
-  concentradas/distribuídas/momentos). 7/7 testes passando no golden dataset.
+  concentradas/distribuídas/momentos). 30 casos golden, 31/31 testes passando.
 - Detecção pedagógica de hiperestática/hipostática implementada.
 - Rastro de passos completo (identificação → validação → cargas → equilíbrio → verificação).
 
 ## Feito na última sessão
-- Kit inicial criado: modelo.py, rastro.py, reacoes.py, 6 casos golden, testes, script demo.
+- Golden ampliado de 6 → 30 casos (07–30): balanços à esquerda/direita/duplo, Gerber
+  com 1 e 2 rótulas, trapezoidais/triangulares, momentos puros e múltiplos, cargas
+  horizontais, engaste à direita, casos com uplift (reação negativa).
+- Gabaritos calculados à mão (conta documentada no campo "conferencia_manual" de cada
+  JSON) e conferidos por um verificador independente (numpy, fora do src/solver) antes
+  do pytest — tripla concordância em todos.
 
 ## Próxima tarefa (em ordem)
-1. Ampliar golden dataset para 30+ casos de REAÇÕES (variar: balanços dos dois lados,
-   Gerber com 2 rótulas, trapezoidais, momentos múltiplos). Gabaritos conferidos à mão.
-2. Iniciar `src/solver/esforcos.py`: funções N(x), V(x), M(x) por trecho com sympy.Piecewise,
+1. Iniciar `src/solver/esforcos.py`: funções N(x), V(x), M(x) por trecho com sympy.Piecewise,
    registrando cada trecho no rastro. Testar contra valores notáveis dos livros.
+   (Definir junto o formato do passo de "seccionamento" no rastro — decisão pendente.)
 
 ## Bugs conhecidos
 - Nenhum.

@@ -1,0 +1,45 @@
+{
+  "descricao": "Balanço à esquerda: viga 0..8, apoios x=2/x=8; P=12 na ponta x=0.",
+  "conferencia_manual": "ΣM_A: (0-2)(-12)+6R_B=24+6R_B=0 → R_B=-4; R_A=12+4=16.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "C",
+        "x": 0
+      },
+      {
+        "id": "A",
+        "x": 2
+      },
+      {
+        "id": "B",
+        "x": 8
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "concentrada",
+        "x": 0,
+        "fy": -12,
+        "fx": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 16.0,
+    "R_B_y": -4.0
+  }
+}

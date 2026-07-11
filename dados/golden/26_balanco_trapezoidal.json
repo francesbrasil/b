@@ -1,0 +1,52 @@
+{
+  "descricao": "Balanço à direita: apoios 0/6, viga até 8; trapezoidal 3→5 no vão e P=6 na ponta.",
+  "conferencia_manual": "Trap: total 24, x̄=6(3+10)/(3·8)=3.25; ΣM_A: 6R_B-78-48=0 → R_B=21; R_A=9.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 6
+      },
+      {
+        "id": "C",
+        "x": 8
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 0,
+        "x_fim": 6,
+        "q_ini": -3,
+        "q_fim": -5
+      },
+      {
+        "tipo": "concentrada",
+        "x": 8,
+        "fy": -6,
+        "fx": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 9.0,
+    "R_B_y": 21.0
+  }
+}

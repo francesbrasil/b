@@ -1,0 +1,41 @@
+{
+  "descricao": "Biapoiada L=8: P=12 kN p/ baixo em x=2.",
+  "conferencia_manual": "ΣM_A: 8R_B-12·2=0 → R_B=3; ΣFy: R_A=12-3=9.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 8
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "concentrada",
+        "x": 2,
+        "fy": -12,
+        "fx": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 9.0,
+    "R_B_y": 3.0
+  }
+}

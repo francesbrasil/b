@@ -1,0 +1,42 @@
+{
+  "descricao": "Engastada L=5: P=9 na ponta e momento -10 (horário) em x=3.",
+  "conferencia_manual": "ΣM_A: M_A+5(-9)+(-10)=0 → M_A=55.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 5
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "terceiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "concentrada",
+        "x": 5,
+        "fy": -9,
+        "fx": 0
+      },
+      {
+        "tipo": "momento",
+        "x": 3,
+        "m": -10
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 9.0,
+    "M_A": 55.0
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "descricao": "Gerber 3 tramos: engaste A x=0, rótulas x=3 e x=9, apoios x=6 e x=12; P=12@1.5, P=10@4.5, P=10@10.5.",
+  "conferencia_manual": "Rot9 dir: 3R_C-10·1.5=0 → R_C=5. Rot3 dir: 3R_B+9·5-10·1.5-10·7.5=0 → R_B=15. ΣFy: R_A=32-20=12. ΣM_A: M_A+6·15+12·5-12·1.5-10·4.5-10·10.5=0 → M_A=18.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 6
+      },
+      {
+        "id": "C",
+        "x": 12
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "terceiro_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      },
+      {
+        "no": "C",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [
+      3,
+      9
+    ],
+    "cargas": [
+      {
+        "tipo": "concentrada",
+        "x": 1.5,
+        "fy": -12,
+        "fx": 0
+      },
+      {
+        "tipo": "concentrada",
+        "x": 4.5,
+        "fy": -10,
+        "fx": 0
+      },
+      {
+        "tipo": "concentrada",
+        "x": 10.5,
+        "fy": -10,
+        "fx": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 12.0,
+    "M_A": 18.0,
+    "R_B_y": 15.0,
+    "R_C_y": 5.0
+  }
+}

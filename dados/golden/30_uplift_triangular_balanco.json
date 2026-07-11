@@ -1,0 +1,46 @@
+{
+  "descricao": "Balanço à direita: apoios 0/6, viga até 9; triangular 0→6 só no balanço [6,9]: uplift em A.",
+  "conferencia_manual": "Total 9@x=8; ΣM_A: 6R_B-72=0 → R_B=12; R_A=9-12=-3.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 6
+      },
+      {
+        "id": "C",
+        "x": 9
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 6,
+        "x_fim": 9,
+        "q_ini": 0,
+        "q_fim": -6
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": -3.0,
+    "R_B_y": 12.0
+  }
+}

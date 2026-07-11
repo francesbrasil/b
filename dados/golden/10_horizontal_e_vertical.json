@@ -1,0 +1,47 @@
+{
+  "descricao": "Biapoiada L=6: Fx=+15 em x=3 e P=18 p/ baixo em x=4.",
+  "conferencia_manual": "ΣFx: R_A_x+15=0 → -15; ΣM_A: 6R_B-18·4=0 → R_B=12; R_A_y=6.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 6
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "concentrada",
+        "x": 3,
+        "fy": 0,
+        "fx": 15
+      },
+      {
+        "tipo": "concentrada",
+        "x": 4,
+        "fy": -18,
+        "fx": 0
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": -15.0,
+    "R_A_y": 6.0,
+    "R_B_y": 12.0
+  }
+}

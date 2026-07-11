@@ -1,0 +1,46 @@
+{
+  "descricao": "Balanço à direita só com q=6 no balanço [5,7]: reação NEGATIVA em A (uplift).",
+  "conferencia_manual": "Total 12@6; ΣM_A: 5R_B-72=0 → R_B=14.4; R_A=12-14.4=-2.4.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 5
+      },
+      {
+        "id": "C",
+        "x": 7
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 5,
+        "x_fim": 7,
+        "q_ini": -6,
+        "q_fim": -6
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": -2.4,
+    "R_B_y": 14.4
+  }
+}

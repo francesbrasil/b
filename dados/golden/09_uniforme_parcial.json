@@ -1,0 +1,42 @@
+{
+  "descricao": "Biapoiada L=10: q=6 kN/m em [2,7].",
+  "conferencia_manual": "Total 30 kN no centroide x=4.5; ΣM_A: 10R_B-30·4.5=0 → R_B=13.5; R_A=16.5.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 10
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 2,
+        "x_fim": 7,
+        "q_ini": -6,
+        "q_fim": -6
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 16.5,
+    "R_B_y": 13.5
+  }
+}

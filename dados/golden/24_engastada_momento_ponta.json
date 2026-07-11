@@ -1,0 +1,36 @@
+{
+  "descricao": "Engastada L=4 só com momento -18 (horário) na ponta livre.",
+  "conferencia_manual": "ΣFy: R_A=0; ΣM_A: M_A-18=0 → M_A=18.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 4
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "terceiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "momento",
+        "x": 4,
+        "m": -18
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 0.0,
+    "M_A": 18.0
+  }
+}

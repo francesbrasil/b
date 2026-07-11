@@ -1,0 +1,51 @@
+{
+  "descricao": "Balanço à esquerda: viga 0..9, apoios x=3/x=9; M=-21 no balanço (x=1) e q=5 no vão [3,9].",
+  "conferencia_manual": "ΣM_A: -21+6R_B+(6-3)(-30)=0 → R_B=111/6=18.5; R_A=30-18.5=11.5.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "C",
+        "x": 0
+      },
+      {
+        "id": "A",
+        "x": 3
+      },
+      {
+        "id": "B",
+        "x": 9
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "segundo_genero"
+      },
+      {
+        "no": "B",
+        "tipo": "primeiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "momento",
+        "x": 1,
+        "m": -21
+      },
+      {
+        "tipo": "distribuida",
+        "x_ini": 3,
+        "x_fim": 9,
+        "q_ini": -5,
+        "q_fim": -5
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 11.5,
+    "R_B_y": 18.5
+  }
+}

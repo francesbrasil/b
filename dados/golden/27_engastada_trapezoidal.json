@@ -1,0 +1,38 @@
+{
+  "descricao": "Engastada L=6 com trapezoidal 2→8 kN/m.",
+  "conferencia_manual": "Total 30, x̄=6(2+16)/(3·10)=3.6; M_A=30·3.6=108.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [
+      {
+        "id": "A",
+        "x": 0
+      },
+      {
+        "id": "B",
+        "x": 6
+      }
+    ],
+    "apoios": [
+      {
+        "no": "A",
+        "tipo": "terceiro_genero"
+      }
+    ],
+    "rotulas": [],
+    "cargas": [
+      {
+        "tipo": "distribuida",
+        "x_ini": 0,
+        "x_fim": 6,
+        "q_ini": -2,
+        "q_fim": -8
+      }
+    ]
+  },
+  "gabarito": {
+    "R_A_x": 0.0,
+    "R_A_y": 30.0,
+    "M_A": 108.0
+  }
+}
