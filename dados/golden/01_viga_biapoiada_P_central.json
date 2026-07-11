@@ -1,0 +1,10 @@
+{
+  "descricao": "Viga biapoiada L=6m, carga concentrada 20 kN para baixo no meio do vão (clássico Hibbeler).",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [{"id": "A", "x": 0}, {"id": "B", "x": 6}],
+    "apoios": [{"no": "A", "tipo": "segundo_genero"}, {"no": "B", "tipo": "primeiro_genero"}],
+    "cargas": [{"tipo": "concentrada", "x": 3, "fy": -20}]
+  },
+  "gabarito": {"R_A_x": 0.0, "R_A_y": 10.0, "R_B_y": 10.0}
+}

@@ -1,0 +1,10 @@
+# Núcleo do solver (semana 1-2)
+sympy>=1.12
+pydantic>=2.5
+numpy>=1.26
+pytest>=8.0
+
+# Semana 3-4 (descomente quando chegar lá)
+# anthropic
+# streamlit
+# matplotlib

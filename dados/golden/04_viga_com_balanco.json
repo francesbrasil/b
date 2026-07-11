@@ -1,0 +1,13 @@
+{
+  "descricao": "Viga com balanço: apoios em x=0 e x=6, q=3 kN/m no vão e P=12 kN na ponta do balanço (x=8).",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [{"id": "A", "x": 0}, {"id": "B", "x": 6}, {"id": "C", "x": 8}],
+    "apoios": [{"no": "A", "tipo": "segundo_genero"}, {"no": "B", "tipo": "primeiro_genero"}],
+    "cargas": [
+      {"tipo": "distribuida", "x_ini": 0, "x_fim": 6, "q_ini": -3, "q_fim": -3},
+      {"tipo": "concentrada", "x": 8, "fy": -12}
+    ]
+  },
+  "gabarito": {"R_A_x": 0.0, "R_A_y": 5.0, "R_B_y": 25.0}
+}

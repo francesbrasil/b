@@ -1,0 +1,10 @@
+{
+  "descricao": "Viga biapoiada L=6m, carga uniforme 5 kN/m para baixo em todo o vão.",
+  "estrutura": {
+    "tipo_estrutura": "viga",
+    "nos": [{"id": "A", "x": 0}, {"id": "B", "x": 6}],
+    "apoios": [{"no": "A", "tipo": "segundo_genero"}, {"no": "B", "tipo": "primeiro_genero"}],
+    "cargas": [{"tipo": "distribuida", "x_ini": 0, "x_fim": 6, "q_ini": -5, "q_fim": -5}]
+  },
+  "gabarito": {"R_A_x": 0.0, "R_A_y": 15.0, "R_B_y": 15.0}
+}
