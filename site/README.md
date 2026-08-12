@@ -42,9 +42,37 @@ Trava a publicação:
 - `[NOME]` → seu nome, na seção Sobre
 - `[NÚMERO]` → anos de ofício (aparece no hero, no Sobre e na FAQ)
 - `[MÊS/ANO]` → quando a Inbre nasceu
-- `--vermelho` no CSS → hex amostrado da logo
+- `--vermelho` no CSS → hex amostrado da logo (leia a seção abaixo antes de trocar)
 - `assets/antes-depois.mp4` e `assets/antes-depois.jpg` → o vídeo comparativo e sua capa
 - `https://inbre.com.br` nas metatags → domínio real
+
+## Ao trocar o vermelho pelo da logo
+
+Existem três vermelhos no arquivo, declarados juntos no `:root`. A relação entre eles é o
+que faz o botão continuar significando "clique aqui":
+
+| token | onde vive | como é |
+|---|---|---|
+| `--vermelho` | só o botão de WhatsApp | nítido, saturado, chapado |
+| `--brasa-rgb` | atmosfera do fundo | alfa baixo, difuso, dessaturado |
+| `--vinho-rgb` | queda da brasa na beirada | mais escuro ainda |
+
+Depois de colar o hex da logo em `--vermelho`, faça este teste: abra a página no celular,
+role até o fim e olhe o botão e o fundo ao mesmo tempo. **Se der para dizer que são a mesma
+cor, está errado.** O caso perigoso é a logo ter um vermelho escuro ou acinzentado — aí
+escureça `--brasa-rgb` e `--vinho-rgb` na mesma medida, senão o botão para de saltar.
+
+O fundo nunca deve virar borda, texto, ícone ou divisória. Vermelho fora de `.cta` é bug.
+
+## Contraste
+
+Medido sobre a atmosfera quente, no ponto mais claro da página: pior caso **4,69:1**, acima
+do mínimo de 4,5 do WCAG AA. Quem segura esse número é o `--cinza-fraco`, que foi clareado de
+`#7A7A80` para `#8A8A90` justamente por causa da atmosfera — o valor antigo dava 4,64:1 já
+sobre preto puro, sem folga nenhuma.
+
+Se você escurecer o texto secundário ou aumentar a intensidade da brasa, refaça a conta antes
+de publicar.
 
 Trava seções específicas, não o site inteiro:
 

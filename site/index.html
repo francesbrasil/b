@@ -43,9 +43,21 @@
      4.5. Qualquer brasa visível no fundo o derrubava. Este dá 4.95:1 mesmo
      no ponto mais quente da página. */
   --cinza-fraco:  #8A8A90;
-  /* TODO: amostrar o vermelho da logo e trocar este valor */
+  /* Os TRÊS vermelhos da página, juntos de propósito — a relação entre eles é
+     o que faz o CTA continuar significando "clique aqui".
+
+       --vermelho    nítido, saturado, CHAPADO. Só o botão de WhatsApp.
+       --brasa-rgb   fundo, alfa baixo e difuso. Nunca vira borda nem texto.
+       --vinho-rgb   a queda da brasa para a beirada do gradiente.
+
+     TODO: amostrar --vermelho da logo. Ao trocar, confira que ele continua
+     MUITO mais claro e saturado que a brasa: se o vermelho da logo for
+     escuro ou acinzentado, escureça a brasa junto, senão o fundo e o botão
+     passam a ler como a mesma cor e o botão deixa de saltar. */
   --vermelho:     #D92D20;
   --vermelho-alto:#F04438;
+  --brasa-rgb:    140, 29, 18;  /* #8C1D12 */
+  --vinho-rgb:     74, 15, 10;  /* #4A0F0A */
 
   --wrap: 680px;
   --raio: 12px;
@@ -614,9 +626,9 @@ footer a:hover { color: var(--cinza-claro); }
    borda nem forma reconhecível em canto nenhum. */
 .aura__brasa {
   background: radial-gradient(circle closest-side at 50% 50%,
-    rgba(140, 29, 18, 0.32) 0%,
-    rgba(116, 24, 15, 0.19) 26%,
-    rgba(74, 15, 10, 0.08) 48%,
+    rgba(var(--brasa-rgb), 0.32) 0%,
+    rgba(var(--brasa-rgb), 0.19) 26%,
+    rgba(var(--vinho-rgb), 0.08) 48%,
     rgba(10, 10, 11, 0) 72%);
   opacity: .72;
 }
