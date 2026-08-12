@@ -23,8 +23,8 @@ Este arquivo é a fonte do texto. Editou aqui, reflita no `index.html` (e vice-v
 **Título:** Seu conteúdo é bom. *A edição está abaixo dele.*
 
 **Subtítulo:** Estúdio de edição de Reels para nutricionistas e personal trainers. Antes de
-qualquer proposta, a Inbre analisa seu perfil e edita um trecho de um vídeo seu — antes e
-depois, em até 24 horas, sem custo.
+qualquer proposta, a Inbre analisa seu perfil e devolve um diagnóstico em até 24 horas, sem
+custo.
 
 **CTA:** Pedir diagnóstico gratuito
 
@@ -40,7 +40,7 @@ para clientes dentro e fora do nicho.
 **Subtítulo:** Nada foi regravado e nenhuma frase foi trocada. O que muda é áudio, corte,
 legenda, ritmo e acabamento.
 
-**Aviso de som:** Assista com som — metade do que muda é áudio.
+**Aviso de som:** Assista com som. Metade do que muda é áudio.
 
 **Crédito:** Peça editada pela Inbre, publicada com autorização do cliente.
 `[CONFIRMAR de quem é a peça]`
@@ -76,12 +76,12 @@ A melhor parte do seu conteúdo quase sempre está no meio. É lá que quase nin
 ### 03 · O que fica
 Um vídeo que ninguém associa a você, e que não leva a lugar nenhum, some no dia seguinte.
 
-- Sem chamada no fim — alcance que não vira consulta nem aluno
+- Sem chamada no fim: alcance que não vira consulta nem aluno
 - Capas sem padrão
 - Sem identidade visual: cor e fonte mudam a cada vídeo
 
 **Fecho:** Reconheceu seu perfil em alguma das três? É exatamente isso que o diagnóstico
-gratuito aponta — e mostra, com um vídeo seu, como fica quando sai do caminho.
+gratuito aponta. E mostra, com um vídeo seu, como fica quando sai do caminho.
 
 **CTA:** Quero ver isso no meu perfil
 
@@ -92,7 +92,7 @@ Portfólio e depoimentos moram na mesma seção: são a mesma coisa — prova de
 **Título:** Peças entregues, *e o que os clientes escreveram.*
 
 **Subtítulo:** Peças reais, de clientes reais. As de nutrição e fitness vêm primeiro, porque são
-o nicho da Inbre. Depois vêm as de outros segmentos, anteriores à marca — estão aqui porque o
+o nicho da Inbre. Depois vêm as de outros segmentos, anteriores à marca. Estão aqui porque o
 trabalho é o mesmo.
 
 **Estado atual:** peças e prints pendentes de autorização dos clientes. Os espaços ficam vazios
@@ -168,7 +168,7 @@ Depende da faixa de volume. O preço aparece na conversa depois do diagnóstico,
 porque assim você decide vendo um antes e depois feito com um vídeo seu, não uma tabela.
 
 **E se eu mesmo edito?**
-Então você já sabe quanto tempo isso toma. A conta não é sobre saber editar — é sobre onde
+Então você já sabe quanto tempo isso toma. A conta não é sobre saber editar. É sobre onde
 essas horas rendem mais: na edição, ou no atendimento, na gravação e no estudo.
 
 **E se eu já tenho editor?**
@@ -180,7 +180,7 @@ Não. O ponto de partida é o volume que você já grava. Se em algum momento fi
 mais, isso aparece na conversa mensal, nunca como exigência de entrada.
 
 **Dá para fazer sem eu aparecer?**
-Dá — com narração, imagens de apoio e texto em tela. Vale saber que, nesse nicho, o rosto
+Dá: com narração, imagens de apoio e texto em tela. Vale saber que, nesse nicho, o rosto
 costuma ser o que aproxima. Se a ideia for chegar lá aos poucos, o diagnóstico já mostra por
 onde começar.
 
@@ -190,7 +190,7 @@ antes e depois editado com esse trecho. É gratuito e não gera compromisso.
 `[CONFIRMAR: a pessoa pode publicar o antes/depois que recebeu?]`
 
 **Há quanto tempo a Inbre existe?**
-A marca existe desde [MÊS/ANO]. O trabalho, há [NÚMERO] anos — os depoimentos desta página são
+A marca existe desde [MÊS/ANO]. O trabalho, há [NÚMERO] anos. Os depoimentos desta página são
 de clientes desse período, alguns anteriores à marca. A Inbre é o recorte desse trabalho em um
 nicho só.
 
@@ -221,9 +221,10 @@ mais rápido que qualquer parágrafo.
 
 É a primeira coisa que a pessoa vê — antes do site, dentro da conversa.
 
-- **og:title** — Inbre · Edição de Reels para nutrição e fitness
-- **og:description** — Diagnóstico gratuito do seu perfil, com um antes e depois editado com um
-  vídeo seu. Em até 24 horas.
+- **og:title** — Inbre · Estúdio de edição de Reels para nutricionistas e personal trainers
+- **og:description** — Estúdio de edição de Reels para nutricionistas e personal trainers.
+  Antes de qualquer proposta, a Inbre analisa seu perfil e devolve um diagnóstico em até 24
+  horas, sem custo.
 - **og:image** — `assets/og.jpg`, 1200×630, um quadro do antes/depois com a logo
 
 ## Mensagens pré-preenchidas dos CTAs
