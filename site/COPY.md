@@ -10,11 +10,16 @@ Este arquivo é a fonte do texto. Editou aqui, reflita no `index.html` (e vice-v
 - O argumento nunca é "seu vídeo é ruim". É "seu conteúdo é bom e a entrega técnica está
   abaixo dele".
 
+**Estrutura** — oito seções numeradas depois do hero, cada uma com um rótulo de trilho
+(`— 02 / O QUE MUDA`). Títulos em dois tons: a primeira frase afirma, a segunda vira em itálico.
+
 ---
 
-## 1. Hero
+## Hero
 
-**Título:** Seu conteúdo é bom. A edição está abaixo dele.
+**Rótulo:** Edição de Reels · nutrição e fitness
+
+**Título:** Seu conteúdo é bom. *A edição está abaixo dele.*
 
 **Subtítulo:** Estúdio de edição de Reels para nutricionistas e personal trainers. Antes de
 qualquer proposta, a Inbre analisa seu perfil e edita um trecho de um vídeo seu — antes e
@@ -27,9 +32,9 @@ depois, em até 24 horas, sem custo.
 **Faixa de credibilidade:** A marca é nova. O ofício não: são [NÚMERO] anos editando vídeo
 para clientes dentro e fora do nicho.
 
-## 2. Antes e depois
+## 01 / A prova
 
-**Título:** O mesmo trecho, antes e depois
+**Título:** O mesmo trecho, *antes e depois.*
 
 **Subtítulo:** Nada foi regravado e nenhuma frase foi trocada. O que muda é áudio, corte,
 legenda, ritmo e acabamento.
@@ -39,57 +44,73 @@ legenda, ritmo e acabamento.
 **Crédito:** Peça editada pela Inbre, publicada com autorização do cliente.
 `[CONFIRMAR de quem é a peça]`
 
-## 3. Autodiagnóstico
+## 02 / O que muda
 
-**Título:** Dez coisas que fazem um bom vídeo render menos
+**Título:** A Inbre não entrega vídeo cortado. *Entrega o segundo em que a pessoa para de
+rolar.*
 
-**Intro:** Nenhuma delas é sobre o que você fala. Todas são sobre o que acontece com quem
-assiste.
+**Subtítulo:** Três frentes, na ordem em que o vídeo é julgado por quem assiste. Sob cada uma,
+o que costuma estar acontecendo hoje.
 
-| # | Item | Efeito |
-|---|---|---|
-| 1 | Áudio abafado, com eco ou volume baixo | Quem está na fila do mercado desiste antes de entender a primeira frase. |
-| 2 | Sem legenda, ou legenda automática mal feita | A maior parte das pessoas assiste sem som. Sem legenda, sua explicação não chega; com legenda errada, ela atrapalha. |
-| 3 | Enquadramento errado | Horizontal, cabeça cortada, você longe demais: o vídeo é julgado antes de você terminar a primeira frase. |
-| 4 | Só falando parado para a câmera | Sem nada para os olhos acompanharem, o vídeo vira áudio com imagem parada. |
-| 5 | Gancho fraco nos 3 primeiros segundos | A melhor parte do seu conteúdo está no meio, e quase ninguém chega lá. |
-| 6 | Demora para entregar o conteúdo | A resposta que a pessoa procurava só aparece no fim. Ela já rolou. |
-| 7 | Ritmo lento, sem cortes, com pausas | Cada pausa é uma porta de saída. A explicação está certa; o tempo dela é que está longo. |
-| 8 | Sem chamada no fim | O vídeo performa e ninguém sabe o que fazer depois. Alcance que não vira consulta nem aluno. |
-| 9 | Capas sem padrão | Quem cai no seu perfil não bate o olho e entende do que você fala. |
-| 10 | Sem identidade visual | Cor e fonte mudam a cada vídeo, cada um parece de uma pessoa diferente, e nada se acumula na memória de quem vê. |
+Os dez itens do autodiagnóstico continuam todos aqui — o que mudou é que deixaram de ser dez
+linhas de peso igual e passaram a viver sob três frentes, nomeadas pelo efeito em quem assiste,
+nunca pelo defeito de quem grava.
 
-**Fecho:** Reconheceu três ou mais? O diagnóstico gratuito aponta quais deles aparecem no seu
-perfil e mostra, com um vídeo seu, como fica quando saem do caminho.
+### 01 · O que chega
+A maior parte assiste sem som, no meio de outra coisa. Se a primeira frase não chega, o resto
+do vídeo não existe.
+
+- Áudio abafado, com eco ou volume baixo
+- Sem legenda, ou legenda automática mal feita
+
+### 02 · O que segura
+A melhor parte do seu conteúdo quase sempre está no meio. É lá que quase ninguém chega.
+
+- Gancho fraco nos 3 primeiros segundos
+- Enquadramento errado: horizontal, cabeça cortada, longe demais
+- Demora para entregar o conteúdo
+- Ritmo lento, sem cortes, com pausas
+- Só falando parado para a câmera, sem imagens de apoio
+
+### 03 · O que fica
+Um vídeo que ninguém associa a você, e que não leva a lugar nenhum, some no dia seguinte.
+
+- Sem chamada no fim — alcance que não vira consulta nem aluno
+- Capas sem padrão
+- Sem identidade visual: cor e fonte mudam a cada vídeo
+
+**Fecho:** Reconheceu seu perfil em alguma das três? É exatamente isso que o diagnóstico
+gratuito aponta — e mostra, com um vídeo seu, como fica quando sai do caminho.
 
 **CTA:** Quero ver isso no meu perfil
 
-## 4. Portfólio
+## 03 / Trabalhos
 
-**Título:** Trabalhos entregues
+Portfólio e depoimentos moram na mesma seção: são a mesma coisa — prova de que houve cliente.
 
-**Intro:** Peças reais, de clientes reais. As de nutrição e fitness vêm primeiro, porque são o
-nicho da Inbre. Depois vêm as de outros segmentos, anteriores à marca — estão aqui porque o
+**Título:** Peças entregues, *e o que os clientes escreveram.*
+
+**Subtítulo:** Peças reais, de clientes reais. As de nutrição e fitness vêm primeiro, porque são
+o nicho da Inbre. Depois vêm as de outros segmentos, anteriores à marca — estão aqui porque o
 trabalho é o mesmo.
 
-**Estado atual:** peças pendentes de autorização dos clientes. Os espaços ficam vazios e
-honestos até a liberação — nenhuma imagem finge ser trabalho entregue.
+**Estado atual:** peças e prints pendentes de autorização dos clientes. Os espaços ficam vazios
+e honestos até a liberação — nenhuma imagem finge ser trabalho entregue.
 
 Cada peça, quando entrar, leva: vídeo · título curto · etiqueta "Resolve: [itens]" com link
-para o item correspondente do autodiagnóstico · e, fora do nicho, a linha "Segmento: [x]".
+para o item correspondente da seção 02 · e, fora do nicho, a linha "Segmento: [x]".
 
-## 5. Depoimentos
-
-**Título:** O que os clientes escreveram
-
-**Intro:** Prints das conversas, sem retoque no texto. Número, foto e valores foram cobertos.
+**Depoimentos:** Prints das conversas, sem retoque no texto. Número, foto e valores foram
+cobertos.
 
 **Atribuição:** [Primeiro nome] · @[instagram] · [segmento]
 
 **Obrigatório:** cada print precisa de texto alternativo transcrevendo a mensagem. Print é
 imagem — sem transcrição, quem usa leitor de tela não recebe prova nenhuma.
 
-## 6. Como funciona
+## 04 / O caminho
+
+**Título:** Como funciona.
 
 **1. Diagnóstico gratuito, em até 24 horas** — Você manda um Reels seu já publicado. Volta um
 vídeo curto comentando o perfil e um antes e depois editado com esse trecho. Sem custo e sem
@@ -104,11 +125,11 @@ legenda, capa e identidade visual constantes de um vídeo para o outro.
 **4. Ajuste a cada mês** — O que funcionou volta, o que não funcionou sai. Roteiro, gancho e
 direção de gravação entram conforme a faixa.
 
-## 7. Planos
+## 05 / Planos
 
-**Título:** Três faixas, por volume mensal
+**Título:** Três faixas, *por volume mensal.*
 
-**Intro:** A diferença entre elas é quantos Reels por mês e quanto da produção fica com a
+**Subtítulo:** A diferença entre elas é quantos Reels por mês e quanto da produção fica com a
 Inbre. O preço não fica na página: ele aparece depois do diagnóstico, quando você já viu o
 trabalho feito com um vídeo seu.
 
@@ -120,9 +141,11 @@ trabalho feito com um vídeo seu.
 
 **CTA:** Descobrir qual faixa cobre seu volume
 
-## 8. Sobre
+**Nota:** O diagnóstico vem antes da proposta, em qualquer faixa.
 
-**Título:** Quem está por trás
+## 06 / Sobre
+
+**Título:** Quem está por trás.
 
 Sou [NOME]. Edito vídeo há [NÚMERO] anos — antes da Inbre, para clientes de [SEGMENTOS], parte
 deles dentro de nutrição e fitness, parte fora.
@@ -135,7 +158,9 @@ razoavelmente bem, ou um muito bem.
 A Inbre é essa escolha. A marca nasceu em [MÊS/ANO]; o trabalho que ela organiza é mais velho
 que ela.
 
-## 9. Perguntas frequentes
+## 07 / Dúvidas
+
+**Título:** Perguntas frequentes.
 
 **Quanto custa?**
 Depende da faixa de volume. O preço aparece na conversa depois do diagnóstico, e não antes,
@@ -168,16 +193,26 @@ A marca existe desde [MÊS/ANO]. O trabalho, há [NÚMERO] anos — os depoiment
 de clientes desse período, alguns anteriores à marca. A Inbre é o recorte desse trabalho em um
 nicho só.
 
-## 10. CTA final
+## 08 / Próximo passo
 
-**Título:** Manda um vídeo seu.
+**Título:** Manda um vídeo seu. *Ele volta editado em 24 horas.*
 
-**Subtítulo:** Em até 24 horas volta o diagnóstico do seu perfil e um antes e depois feito com
-ele. Sem custo, sem compromisso.
+**Subtítulo:** O diagnóstico do seu perfil e um antes e depois feito com o seu vídeo. Sem
+custo, sem compromisso.
 
 **CTA:** Abrir conversa no WhatsApp
 
-**Rodapé:** Inbre · Edição de Reels para nutrição e fitness · @[INSTAGRAM] · [EMAIL]
+**Grade de contato** — quem chegou aqui veio checar se a Inbre existe; esta grade responde isso
+mais rápido que qualquer parágrafo.
+
+| | |
+|---|---|
+| WhatsApp | [NÚMERO VISÍVEL] |
+| Instagram | @[INSTAGRAM] |
+| E-mail | [EMAIL] |
+| CNPJ | [CNPJ] — opcional, mas é o item que mais pesa; se não houver, apague a linha |
+
+**Rodapé:** Inbre · Edição de Reels para nutrição e fitness
 
 ---
 
@@ -197,6 +232,6 @@ Cada posição manda uma mensagem diferente, para você saber de onde a pessoa s
 | Posição | Mensagem |
 |---|---|
 | Hero | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito do meu perfil. |
-| Autodiagnóstico | Oi, vim pelo site. Me reconheci em alguns pontos da lista e quero o diagnóstico gratuito. |
+| Seção 02 | Oi, vim pelo site. Me reconheci em alguns pontos da lista e quero o diagnóstico gratuito. |
 | Planos | Oi, vim pelo site. Quero entender qual faixa cobre meu volume de Reels. |
-| CTA final e barra fixa | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito. |
+| Próximo passo e barra fixa | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito. |

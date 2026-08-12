@@ -45,7 +45,11 @@
 
   --wrap: 680px;
   --raio: 12px;
+  /* Serif do sistema nos títulos, sem baixar fonte nenhuma: dá o ar editorial
+     sem custo de carregamento. Mono só nos rótulos de seção. */
   --fonte: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fonte-titulo: Georgia, "Times New Roman", Times, serif;
+  --fonte-mono: ui-monospace, SFMono-Regular, Menlo, "Roboto Mono", monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -67,7 +71,18 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3 { line-height: 1.18; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* Segunda metade do título, em itálico e mais apagada: separa a afirmação da
+   virada sem gastar cor — o vermelho continua só no CTA. */
+.destaque { font-style: italic; font-weight: 400; color: var(--cinza-claro); }
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; }
 
@@ -102,14 +117,24 @@ section { padding-block: 56px; }
   font-weight: 600;
 }
 
-/* --- rótulo de seção --- */
+/* --- trilho numerado: dá espinha à página e diz onde a pessoa está --- */
 .rotulo {
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fonte-mono);
+  font-size: 11.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cinza-fraco);
-  margin-bottom: 14px;
-  font-weight: 600;
+  margin-bottom: 16px;
+}
+.rotulo::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--cinza-fraco);
+  flex: none;
 }
 
 .sub {
@@ -163,7 +188,6 @@ section { padding-block: 56px; }
   font-size: clamp(31px, 8.4vw, 46px);
   font-weight: 700;
 }
-.hero h1 span { color: var(--cinza-claro); }
 .hero .sub { font-size: 17px; max-width: 34em; }
 .hero .cta { margin-top: 30px; }
 
@@ -243,34 +267,64 @@ section { padding-block: 56px; }
   text-align: center;
 }
 
-/* --- autodiagnóstico --- */
-.itens { list-style: none; margin: 28px 0 0; padding: 0; counter-reset: item; }
-.itens li {
-  counter-increment: item;
-  display: grid;
-  grid-template-columns: 34px 1fr;
-  gap: 4px 12px;
-  padding: 18px 0;
+/* --- pilares: três frentes, não dez linhas iguais --- */
+.pilares { display: grid; gap: 0; margin-top: 34px; counter-reset: pilar; }
+.pilar {
+  counter-increment: pilar;
+  padding: 26px 0;
   border-top: 1px solid var(--linha);
+}
+.pilar:last-child { border-bottom: 1px solid var(--linha); }
+.pilar::before {
+  content: counter(pilar, decimal-leading-zero);
+  display: block;
+  font-family: var(--fonte-mono);
+  font-size: 12px;
+  color: var(--cinza-fraco);
+  margin-bottom: 10px;
+}
+.pilar h3 { font-size: 24px; }
+.pilar > p { margin-top: 8px; color: var(--cinza); font-size: 16px; max-width: 34em; }
+.pilar ul {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+}
+.pilar li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  color: var(--cinza-claro);
   scroll-margin-top: 24px;
 }
-.itens li::before {
-  content: counter(item, decimal-leading-zero);
-  grid-row: span 2;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--cinza-fraco);
-  font-variant-numeric: tabular-nums;
-  padding-top: 3px;
+.pilar li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 11px;
+  width: 8px; height: 1px;
+  background: var(--cinza-fraco);
 }
-.itens b { font-weight: 600; font-size: 17px; }
-.itens p { font-size: 15.5px; color: var(--cinza); }
-.itens li:target b { color: var(--branco); }
-.itens li:target {
+.pilar li:target {
+  color: var(--branco);
   background: var(--carvao);
-  border-radius: 10px;
-  padding-inline: 12px;
-  margin-inline: -12px;
+  border-radius: 8px;
+  padding: 6px 10px 6px 18px;
+  margin: -6px -10px -6px 0;
+}
+@media (min-width: 700px) {
+  /* Título à esquerda, conteúdo à direita — sem deixar meia coluna vazia. */
+  .pilar {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 0 40px;
+    align-items: start;
+  }
+  .pilar::before { grid-column: 1; grid-row: 1; }
+  .pilar h3 { grid-column: 1; grid-row: 2; }
+  .pilar > p { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
+  .pilar ul { grid-column: 2; grid-row: 3; margin-top: 18px; }
 }
 
 .fecho {
@@ -440,21 +494,40 @@ section { padding-block: 56px; }
   max-width: 40em;
 }
 
-/* --- cta final --- */
+/* --- próximo passo --- */
 .final {
   background: var(--carvao);
   border-top: 1px solid var(--linha);
-  text-align: center;
 }
-.final h2 { font-size: clamp(26px, 7vw, 34px); }
-.final .sub { margin-inline: auto; max-width: 30em; }
+.final h2 { font-size: clamp(32px, 9vw, 50px); }
+.final .sub { max-width: 32em; }
 .final .cta { margin-top: 28px; }
+
+/* Grade de contato. Para quem chegou aqui só para checar se a Inbre existe,
+   isto vale mais do que qualquer parágrafo da página. */
+.contato {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 18px;
+  margin: 42px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--linha);
+}
+.contato dt {
+  font-family: var(--fonte-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cinza-fraco);
+}
+.contato dd { margin: 6px 0 0; font-size: 15.5px; color: var(--cinza-claro); }
+.contato a { text-decoration: none; }
+.contato a:hover { color: var(--branco); }
 
 /* --- rodapé --- */
 footer {
   background: var(--carvao);
   padding-block: 28px 40px;
-  text-align: center;
   font-size: 14px;
   color: var(--cinza-fraco);
 }
@@ -507,7 +580,8 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 1. HERO ============ -->
 <section class="hero" aria-labelledby="t-hero">
   <div class="wrap">
-    <h1 id="t-hero">Seu conteúdo é bom.<span> A edição está abaixo dele.</span></h1>
+    <p class="rotulo">Edição de Reels · nutrição e fitness</p>
+    <h1 id="t-hero">Seu conteúdo é bom.<span class="destaque"> A edição está abaixo dele.</span></h1>
     <p class="sub">
       Estúdio de edição de Reels para nutricionistas e personal trainers. Antes de qualquer
       proposta, a Inbre analisa seu perfil e edita um trecho de um vídeo seu — antes e depois,
@@ -536,8 +610,8 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 2. ANTES E DEPOIS ============ -->
 <section aria-labelledby="t-prova">
   <div class="wrap">
-    <p class="rotulo">A prova</p>
-    <h2 id="t-prova">O mesmo trecho, antes e depois</h2>
+    <p class="rotulo">01 / A prova</p>
+    <h2 id="t-prova">O mesmo trecho,<span class="destaque"> antes e depois.</span></h2>
     <p class="sub">Nada foi regravado e nenhuma frase foi trocada. O que muda é áudio, corte,
       legenda, ritmo e acabamento.</p>
 
@@ -561,62 +635,51 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 3. AUTODIAGNÓSTICO ============ -->
 <section aria-labelledby="t-diag">
   <div class="wrap">
-    <p class="rotulo">Autodiagnóstico</p>
-    <h2 id="t-diag">Dez coisas que fazem um bom vídeo render menos</h2>
-    <p class="sub">Nenhuma delas é sobre o que você fala. Todas são sobre o que acontece com
-      quem assiste.</p>
+    <p class="rotulo">02 / O que muda</p>
+    <h2 id="t-diag">A Inbre não entrega vídeo cortado.<span class="destaque"> Entrega o segundo
+      em que a pessoa para de rolar.</span></h2>
+    <p class="sub">Três frentes, na ordem em que o vídeo é julgado por quem assiste. Sob cada
+      uma, o que costuma estar acontecendo hoje.</p>
 
-    <ol class="itens">
-      <li id="d1">
-        <b>Áudio abafado, com eco ou volume baixo</b>
-        <p>Quem está na fila do mercado desiste antes de entender a primeira frase.</p>
-      </li>
-      <li id="d2">
-        <b>Sem legenda, ou legenda automática mal feita</b>
-        <p>A maior parte das pessoas assiste sem som. Sem legenda, sua explicação não chega;
-          com legenda errada, ela atrapalha.</p>
-      </li>
-      <li id="d3">
-        <b>Enquadramento errado</b>
-        <p>Horizontal, cabeça cortada, você longe demais: o vídeo é julgado antes de você
-          terminar a primeira frase.</p>
-      </li>
-      <li id="d4">
-        <b>Só falando parado para a câmera</b>
-        <p>Sem nada para os olhos acompanharem, o vídeo vira áudio com imagem parada.</p>
-      </li>
-      <li id="d5">
-        <b>Gancho fraco nos 3 primeiros segundos</b>
-        <p>A melhor parte do seu conteúdo está no meio, e quase ninguém chega lá.</p>
-      </li>
-      <li id="d6">
-        <b>Demora para entregar o conteúdo</b>
-        <p>A resposta que a pessoa procurava só aparece no fim. Ela já rolou.</p>
-      </li>
-      <li id="d7">
-        <b>Ritmo lento, sem cortes, com pausas</b>
-        <p>Cada pausa é uma porta de saída. A explicação está certa; o tempo dela é que está
-          longo.</p>
-      </li>
-      <li id="d8">
-        <b>Sem chamada no fim</b>
-        <p>O vídeo performa e ninguém sabe o que fazer depois. Alcance que não vira consulta
-          nem aluno.</p>
-      </li>
-      <li id="d9">
-        <b>Capas sem padrão</b>
-        <p>Quem cai no seu perfil não bate o olho e entende do que você fala.</p>
-      </li>
-      <li id="d10">
-        <b>Sem identidade visual</b>
-        <p>Cor e fonte mudam a cada vídeo, cada um parece de uma pessoa diferente, e nada se
-          acumula na memória de quem vê.</p>
-      </li>
-    </ol>
+    <div class="pilares">
+      <article class="pilar">
+        <h3>O que chega</h3>
+        <p>A maior parte assiste sem som, no meio de outra coisa. Se a primeira frase não
+          chega, o resto do vídeo não existe.</p>
+        <ul>
+          <li id="d1">Áudio abafado, com eco ou volume baixo</li>
+          <li id="d2">Sem legenda, ou legenda automática mal feita</li>
+        </ul>
+      </article>
+
+      <article class="pilar">
+        <h3>O que segura</h3>
+        <p>A melhor parte do seu conteúdo quase sempre está no meio. É lá que quase ninguém
+          chega.</p>
+        <ul>
+          <li id="d5">Gancho fraco nos 3 primeiros segundos</li>
+          <li id="d3">Enquadramento errado: horizontal, cabeça cortada, longe demais</li>
+          <li id="d6">Demora para entregar o conteúdo</li>
+          <li id="d7">Ritmo lento, sem cortes, com pausas</li>
+          <li id="d4">Só falando parado para a câmera, sem imagens de apoio</li>
+        </ul>
+      </article>
+
+      <article class="pilar">
+        <h3>O que fica</h3>
+        <p>Um vídeo que ninguém associa a você, e que não leva a lugar nenhum, some no dia
+          seguinte.</p>
+        <ul>
+          <li id="d8">Sem chamada no fim — alcance que não vira consulta nem aluno</li>
+          <li id="d9">Capas sem padrão</li>
+          <li id="d10">Sem identidade visual: cor e fonte mudam a cada vídeo</li>
+        </ul>
+      </article>
+    </div>
 
     <div class="fecho">
-      <p>Reconheceu três ou mais? O diagnóstico gratuito aponta quais deles aparecem no seu
-        perfil e mostra, com um vídeo seu, como fica quando saem do caminho.</p>
+      <p>Reconheceu seu perfil em alguma das três? É exatamente isso que o diagnóstico gratuito
+        aponta — e mostra, com um vídeo seu, como fica quando sai do caminho.</p>
       <a class="cta cta--bloco"
          href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site.%20Me%20reconheci%20em%20alguns%20pontos%20da%20lista%20e%20quero%20o%20diagn%C3%B3stico%20gratuito."
          target="_blank" rel="noopener">Quero ver isso no meu perfil</a>
@@ -627,8 +690,9 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 4. PORTFÓLIO ============ -->
 <section aria-labelledby="t-port">
   <div class="wrap">
-    <p class="rotulo">Portfólio</p>
-    <h2 id="t-port">Trabalhos entregues</h2>
+    <p class="rotulo">03 / Trabalhos</p>
+    <h2 id="t-port">Peças entregues,<span class="destaque"> e o que os clientes
+      escreveram.</span></h2>
     <p class="sub">Peças reais, de clientes reais. As de nutrição e fitness vêm primeiro, porque
       são o nicho da Inbre. Depois vêm as de outros segmentos, anteriores à marca — estão aqui
       porque o trabalho é o mesmo.</p>
@@ -660,14 +724,8 @@ footer a:hover { color: var(--cinza-claro); }
       </figcaption>
     </figure>
     -->
-  </div>
-</section>
 
-<!-- ============ 5. DEPOIMENTOS ============ -->
-<section aria-labelledby="t-dep">
-  <div class="wrap">
-    <p class="rotulo">Depoimentos</p>
-    <h2 id="t-dep">O que os clientes escreveram</h2>
+    <p class="grupo-titulo" id="t-dep">Depoimentos</p>
     <p class="sub">Prints das conversas, sem retoque no texto. Número, foto e valores foram
       cobertos.</p>
 
@@ -691,8 +749,8 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 6. COMO FUNCIONA ============ -->
 <section aria-labelledby="t-como">
   <div class="wrap">
-    <p class="rotulo">O caminho</p>
-    <h2 id="t-como">Como funciona</h2>
+    <p class="rotulo">04 / O caminho</p>
+    <h2 id="t-como">Como funciona.</h2>
 
     <ol class="passos">
       <li>
@@ -722,8 +780,8 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 7. PLANOS ============ -->
 <section aria-labelledby="t-planos">
   <div class="wrap">
-    <p class="rotulo">Planos</p>
-    <h2 id="t-planos">Três faixas, por volume mensal</h2>
+    <p class="rotulo">05 / Planos</p>
+    <h2 id="t-planos">Três faixas,<span class="destaque"> por volume mensal.</span></h2>
     <p class="sub">A diferença entre elas é quantos Reels por mês e quanto da produção fica com
       a Inbre. O preço não fica na página: ele aparece depois do diagnóstico, quando você já viu
       o trabalho feito com um vídeo seu.</p>
@@ -775,8 +833,8 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 8. SOBRE ============ -->
 <section class="sobre" aria-labelledby="t-sobre">
   <div class="wrap">
-    <p class="rotulo">Sobre</p>
-    <h2 id="t-sobre">Quem está por trás</h2>
+    <p class="rotulo">06 / Sobre</p>
+    <h2 id="t-sobre">Quem está por trás.</h2>
 
     <!-- TODO: [NOME], [NÚMERO] anos, [SEGMENTOS] anteriores e [MÊS/ANO] de nascimento da marca -->
     <p style="margin-top:20px">Sou [NOME]. Edito vídeo há [NÚMERO] anos — antes da Inbre, para
@@ -794,8 +852,8 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 9. FAQ ============ -->
 <section aria-labelledby="t-faq">
   <div class="wrap">
-    <p class="rotulo">Dúvidas</p>
-    <h2 id="t-faq">Perguntas frequentes</h2>
+    <p class="rotulo">07 / Dúvidas</p>
+    <h2 id="t-faq">Perguntas frequentes.</h2>
 
     <div class="faq">
       <details>
@@ -846,15 +904,40 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 10. CTA FINAL ============ -->
 <section class="final" aria-labelledby="t-final">
   <div class="wrap">
-    <h2 id="t-final">Manda um vídeo seu.</h2>
-    <p class="sub">Em até 24 horas volta o diagnóstico do seu perfil e um antes e depois feito
-      com ele. Sem custo, sem compromisso.</p>
+    <p class="rotulo">08 / Próximo passo</p>
+    <h2 id="t-final">Manda um vídeo seu.<span class="destaque"> Ele volta editado em 24
+      horas.</span></h2>
+    <p class="sub">O diagnóstico do seu perfil e um antes e depois feito com o seu vídeo. Sem
+      custo, sem compromisso.</p>
     <a class="cta cta--bloco"
        href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site%20da%20Inbre.%20Quero%20o%20diagn%C3%B3stico%20gratuito."
        target="_blank" rel="noopener">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.3c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.9-1.4-1.3-2.9-1.3-4.5 0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.7 8.4-8.3 8.4z"/></svg>
       Abrir conversa no WhatsApp
     </a>
+
+    <!-- TODO: preencher os dados reais. Quem chegou aqui veio checar se a Inbre existe —
+         esta grade responde isso mais rápido que qualquer parágrafo. O CNPJ é opcional,
+         mas é o item que mais pesa nessa checagem; se não houver, apague a linha inteira. -->
+    <dl class="contato">
+      <div>
+        <dt>WhatsApp</dt>
+        <dd><a href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site%20da%20Inbre.%20Quero%20o%20diagn%C3%B3stico%20gratuito."
+               target="_blank" rel="noopener">[NÚMERO VISÍVEL]</a></dd>
+      </div>
+      <div>
+        <dt>Instagram</dt>
+        <dd><a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">@[INSTAGRAM]</a></dd>
+      </div>
+      <div>
+        <dt>E-mail</dt>
+        <dd><a href="mailto:[EMAIL]">[EMAIL]</a></dd>
+      </div>
+      <div>
+        <dt>CNPJ</dt>
+        <dd>[CNPJ]</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -862,9 +945,7 @@ footer a:hover { color: var(--cinza-claro); }
 
 <footer>
   <div class="wrap">
-    <!-- TODO: Instagram e e-mail da Inbre -->
     <p>Inbre · Edição de Reels para nutrição e fitness</p>
-    <p style="margin-top:6px">@[INSTAGRAM] · [EMAIL]</p>
   </div>
 </footer>
 

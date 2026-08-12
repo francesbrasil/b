@@ -49,10 +49,12 @@ Trava a publicação:
 Trava seções específicas, não o site inteiro:
 
 - entregas exatas de cada plano
-- peças de portfólio (+ autorização) e a que item do autodiagnóstico cada uma responde
+- peças de portfólio (+ autorização) e a que item da seção 02 cada uma responde
 - prints de depoimentos, com primeiro nome, @ e segmento
 - segmentos anteriores à Inbre, na seção Sobre
-- Instagram e e-mail no rodapé
+- a grade de contato do fim: `[NÚMERO VISÍVEL]`, `@[INSTAGRAM]`, `[EMAIL]` e `[CNPJ]`
+  (o CNPJ é opcional, mas é o item que mais pesa em quem veio checar se a Inbre é real;
+  se não houver, apague a linha inteira em vez de deixar vazia)
 
 ## Como adicionar peças e depoimentos
 
