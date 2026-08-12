@@ -38,7 +38,11 @@
   --branco:       #F5F5F4;
   --cinza-claro:  #C7C7CC;
   --cinza:        #A1A1A6;
-  --cinza-fraco:  #7A7A80;
+  /* Clareado de #7A7A80 para cá por causa da atmosfera quente: o valor antigo
+     dava 4.64:1 sobre o preto puro, ou seja 3% de folga sobre o mínimo de
+     4.5. Qualquer brasa visível no fundo o derrubava. Este dá 4.95:1 mesmo
+     no ponto mais quente da página. */
+  --cinza-fraco:  #8A8A90;
   /* TODO: amostrar o vermelho da logo e trocar este valor */
   --vermelho:     #D92D20;
   --vermelho-alto:#F04438;
@@ -571,40 +575,63 @@ footer a:hover { color: var(--cinza-claro); }
    c) tudo desligado sob prefers-reduced-motion.
    ================================================================= */
 
-/* --- aura: uma luz baixa que desce junto com a leitura -----------
-   Uma camada só. Não é parallax: não há duas velocidades brigando
-   pela atenção. É um objeto único que acompanha quem lê e faz o
-   preto virar ambiente em vez de vazio. Sem blur — o gradiente
-   radial já entrega a suavidade, e blur em tela cheia é a conta
-   que mata celular antigo. */
+/* --- aura: atmosfera que muda de temperatura com o conteúdo -------
+   Um objeto só, que acompanha quem lê e faz o preto virar ambiente
+   em vez de vazio. Não é parallax: não há duas velocidades brigando
+   pela atenção — as duas camadas de dentro ficam sempre coladas uma
+   na outra, só variam de opacidade.
+
+   Sem blur e sem backdrop-filter: gradiente radial já entrega a
+   suavidade, e filtro em elemento de tela cheia é a conta que
+   derruba o frame rate no aparelho intermediário. */
 .aura {
   position: fixed;
   left: 50%;
   top: 0;
   z-index: -1;
-  width: min(160vw, 1200px);
+  width: min(170vw, 1280px);
   aspect-ratio: 1 / 1;
   pointer-events: none;
-  opacity: .58;
-  transform: translate3d(-50%, -20vh, 0);
-  will-change: transform, opacity;
+  transform: translate3d(-50%, -16vh, 0);
+  will-change: transform;
 }
-/* Os valores de alfa são altos de propósito. Num preto quase puro, gradiente
-   abaixo de ~0.3 de pico some completamente em tela de celular na rua — que é
-   onde esta página é lida. O resultado aqui chega a uns rgb(40,40,45) no
-   centro: dá volume ao fundo e continua deixando o texto branco muito acima
-   do mínimo de contraste. */
 .aura i {
+  position: absolute;
+  inset: 0;
   display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 50%,
-    rgba(152, 154, 172, 0.38) 0%,
-    rgba(120, 122, 140, 0.17) 35%,
-    rgba(10, 10, 11, 0) 68%);
+  will-change: opacity;
 }
-/* Respiração lenta, no filho e não no pai, para não disputar o
+
+/* Camada quente — a que carrega a história.
+   O vermelho aqui é #8C1D12 caindo para #4A0F0A: brasa e vinho, não o
+   vermelho do botão. Mesmo no pico da página o fundo composto chega a
+   cerca de rgb(54,16,13) — uma mancha escura e dessaturada, sem contorno.
+   Ninguém consegue apontar para ela e para o #D92D20 chapado do CTA e
+   dizer que é o mesmo vermelho: um é fumaça, o outro é sinal.
+
+   `closest-side` é o detalhe que garante "luz, não objeto": o gradiente
+   morre em 72% do raio menor, bem dentro da caixa, então não existe anel,
+   borda nem forma reconhecível em canto nenhum. */
+.aura__brasa {
+  background: radial-gradient(circle closest-side at 50% 50%,
+    rgba(140, 29, 18, 0.32) 0%,
+    rgba(116, 24, 15, 0.19) 26%,
+    rgba(74, 15, 10, 0.08) 48%,
+    rgba(10, 10, 11, 0) 72%);
+  opacity: .72;
+}
+/* Camada neutra, herdada da versão anterior. Fica por baixo para o miolo
+   frio não virar preto chapado, e para o trecho quente não ler como
+   monocromia vermelha — sem ela a página parece filtro, não ambiente. */
+.aura__fria {
+  background: radial-gradient(circle closest-side at 50% 50%,
+    rgba(152, 154, 172, 0.20) 0%,
+    rgba(120, 122, 140, 0.09) 34%,
+    rgba(10, 10, 11, 0) 68%);
+  opacity: .35;
+}
+
+/* Respiração lenta, nos filhos e não no pai, para não disputar o
    transform que o JS escreve durante a rolagem. É o que mantém a
    página viva quando a pessoa para de rolar para ler. */
 @media (prefers-reduced-motion: no-preference) {
@@ -696,7 +723,10 @@ footer a:hover { color: var(--cinza-claro); }
 
 <!-- Decoração pura: fora da árvore de acessibilidade, sem captura de toque e
      sem conteúdo dentro. Se o JS não rodar, ficam parados e inofensivos. -->
-<div class="aura" id="aura" aria-hidden="true"><i></i></div>
+<div class="aura" id="aura" aria-hidden="true">
+  <i class="aura__brasa" id="aura-brasa"></i>
+  <i class="aura__fria" id="aura-fria"></i>
+</div>
 <div class="progresso" id="progresso" aria-hidden="true"></div>
 
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -1155,16 +1185,78 @@ footer a:hover { color: var(--cinza-claro); }
      frame seria forçar reflow sessenta vezes por segundo, que é o jeito
      clássico de travar celular antigo.                                     */
   var aura = document.getElementById("aura");
+  var brasa = document.getElementById("aura-brasa");
+  var fria = document.getElementById("aura-fria");
   var fio = document.getElementById("progresso");
   var alcance = 1;
+  var meiaTela = 0;
   var anterior = -1;
+  var marcos = [];
+
+  function topoDe(id) {
+    var el = document.getElementById(id);
+    if (!el) return null;
+    var s = el.closest("section") || el;
+    return s.getBoundingClientRect().top + window.scrollY;
+  }
+
+  /* ---- Curva de temperatura amarrada ao CONTEÚDO -------------------------
+     Os pontos de virada não são porcentagens chutadas de rolagem: cada um é
+     a posição REAL de uma seção, medida no DOM. É isso que amarra a
+     atmosfera ao texto em vez de deixá-la andando junto por acaso — se uma
+     peça entrar no portfólio, se o Sobre crescer ou se o FAQ abrir, a
+     virada continua caindo na seção certa sem ninguém reajustar número.
+
+     A curva conta a mesma história que a página:
+       hero e 01 prova ..... quente. É onde a pessoa decide se fica.
+       02 a 05 ............. frio e escuro. Autodiagnóstico, trabalhos,
+                             como funciona e planos são leitura técnica e
+                             comparação; calor ali cansa a vista.
+       06 sobre / 07 dúvidas reaquece. É onde a objeção é respondida.
+       08 próximo passo .... crista, mais forte que o topo.
+
+     A crista cai exatamente quando `.final` entra na tela — e `.final` tem
+     fundo carvão OPACO, então a atmosfera não passa por trás dela. O efeito
+     é proposital: a página chega ao seu ponto mais quente e o botão pousa
+     numa placa escura limpa, sem halo atrás, continuando a única coisa
+     saturada da tela. */
+  function medirCalor() {
+    var pontos = [[0, 0.52]];
+    var prova = topoDe("t-prova"), diag = topoDe("t-diag"),
+        planos = topoDe("t-planos"), sobre = topoDe("t-sobre"),
+        fim = topoDe("t-final");
+    if (prova) pontos.push([prova, 0.78]);
+    if (diag) pontos.push([diag, 0.10]);
+    if (planos) pontos.push([planos, 0.05]);
+    if (sobre) pontos.push([sobre, 0.52]);
+    if (fim) pontos.push([fim, 1]);
+    pontos.push([document.documentElement.scrollHeight, 1]);
+    marcos = pontos;
+  }
+
+  // interpolação linear entre os marcos; nenhuma leitura de layout aqui
+  function calorEm(y) {
+    var m = marcos;
+    if (!m.length) return 0.5;
+    if (y <= m[0][0]) return m[0][1];
+    for (var i = 1; i < m.length; i++) {
+      if (y <= m[i][0]) {
+        var a = m[i - 1], b = m[i];
+        return a[1] + (b[1] - a[1]) * ((y - a[0]) / Math.max(1, b[0] - a[0]));
+      }
+    }
+    return m[m.length - 1][1];
+  }
 
   function medir() {
     alcance = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    meiaTela = window.innerHeight / 2;
+    medirCalor();
   }
 
   function aplicar(y) {
-    var p = (y === undefined ? window.scrollY : y) / alcance;
+    var pos = (y === undefined ? window.scrollY : y);
+    var p = pos / alcance;
     p = p < 0 ? 0 : (p > 1 ? 1 : p);
     // escrita só quando o valor mudou de fato: rolagem parada não gera trabalho
     if (Math.abs(p - anterior) < 0.0005) return;
@@ -1172,14 +1264,24 @@ footer a:hover { color: var(--cinza-claro); }
 
     if (fio) fio.style.transform = "scaleX(" + p.toFixed(4) + ")";
 
-    /* A luz desce de -20vh a +26vh e abre 22% no caminho. No fim da página
-       ela está embaixo, junto do CTA final — é onde a decisão acontece, e a
-       página vai clareando conforme se aproxima dela. */
     if (aura && !semMovimento) {
+      /* Deriva lenta: a luz desce de -16vh a +20vh. O `scale` cresce só 10%
+         de propósito — abrir muito espalha a mesma energia numa área maior e
+         DERRUBA o pico justamente no fim, que é onde a página tem que estar
+         mais quente. Abertura demais aqui trabalha contra a curva. */
       aura.style.transform =
-        "translate3d(-50%, " + (-20 + p * 46).toFixed(2) + "vh, 0) scale(" +
-        (1 + p * 0.22).toFixed(3) + ")";
-      aura.style.opacity = (0.58 + p * 0.30).toFixed(3);
+        "translate3d(-50%, " + (-16 + p * 36).toFixed(2) + "vh, 0) scale(" +
+        (1 + p * 0.10).toFixed(3) + ")";
+
+      /* Temperatura por OPACIDADE de duas camadas já pintadas — nenhum
+         gradiente é recalculado durante a rolagem, que é o que tornaria
+         isto caro. A referência é o centro da tela, não o topo do
+         documento: o que manda é a seção que a pessoa está lendo. */
+      var calor = calorEm(pos + meiaTela);
+      brasa.style.opacity = calor.toFixed(3);
+      // a neutra acompanha de longe: segura um piso de ambiente no miolo
+      // frio, sem deixar o trecho quente virar monocromia vermelha
+      fria.style.opacity = (0.15 + 0.26 * calor).toFixed(3);
     }
   }
 
