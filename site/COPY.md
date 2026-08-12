@@ -4,8 +4,9 @@ Este arquivo é a fonte do texto. Editou aqui, reflita no `index.html` (e vice-v
 
 **Convenções**
 - `[COLCHETES MAIÚSCULOS]` = dado que falta. Nada disso é inventado; tudo é preenchido por você.
-- Voz: terceira pessoa ("a Inbre edita"). Exceção deliberada: a seção **Sobre** é assinada em
-  primeira pessoa, porque é quem assina.
+- Voz: terceira pessoa ("a Inbre edita"), **sem exceção**. Nenhuma seção é assinada por
+  pessoa: quem aparece na página é a empresa. O Sobre, que antes era em primeira pessoa e
+  terminava assinado, passou a falar do que veio antes da marca.
 - Sem exclamação, sem promessa de número, sem estatística solta, sem vocabulário de agência.
 - O argumento nunca é "seu vídeo é ruim". É "seu conteúdo é bom e a entrega técnica está
   abaixo dele".
@@ -145,18 +146,18 @@ trabalho feito com um vídeo seu.
 
 ## 06 / Sobre
 
-**Título:** Quem está por trás.
+**Título:** O que veio antes *da marca.*
 
-Sou [NOME]. Edito vídeo há [NÚMERO] anos — antes da Inbre, para clientes de [SEGMENTOS], parte
-deles dentro de nutrição e fitness, parte fora.
+A Inbre nasceu em [MÊS/ANO]. O trabalho que ela organiza é mais velho que ela: são [NÚMERO]
+anos editando vídeo para clientes de [SEGMENTOS], parte deles dentro de nutrição e fitness,
+parte fora.
 
 Foi essa variedade que levou ao recorte. Editar para segmentos diferentes ensina rápido o que
 muda de um para o outro: o que prende a atenção de quem procura orientação alimentar não é o
 que prende quem procura outra coisa. Chega uma hora em que dá para atender vários
 razoavelmente bem, ou um muito bem.
 
-A Inbre é essa escolha. A marca nasceu em [MÊS/ANO]; o trabalho que ela organiza é mais velho
-que ela.
+A Inbre é essa escolha: um nicho só, feito por quem já editou para vários.
 
 ## 07 / Dúvidas
 

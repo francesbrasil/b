@@ -475,7 +475,6 @@ section { padding-block: 56px; }
 /* --- sobre --- */
 .sobre p + p { margin-top: 16px; }
 .sobre p { color: var(--cinza-claro); }
-.assinatura { margin-top: 22px; font-size: 14px; color: var(--cinza-fraco); }
 
 /* --- faq --- */
 .faq { margin-top: 24px; }
@@ -1006,18 +1005,20 @@ footer a:hover { color: var(--cinza-claro); }
 <section class="sobre" aria-labelledby="t-sobre">
   <div class="wrap">
     <p class="rotulo">06 / Sobre</p>
-    <h2 id="t-sobre">Quem está por trás.</h2>
+    <!-- O título era "Quem está por trás", que prometia uma pessoa e uma assinatura.
+         Sem nome, a promessa não se cumpre: a seção passa a falar do que veio antes
+         da marca, que é a informação que de fato sustenta a credibilidade aqui. -->
+    <h2 id="t-sobre">O que veio antes<span class="destaque"> da marca.</span></h2>
 
-    <!-- TODO: [NOME], [NÚMERO] anos, [SEGMENTOS] anteriores e [MÊS/ANO] de nascimento da marca -->
-    <p style="margin-top:20px">Sou [NOME]. Edito vídeo há [NÚMERO] anos — antes da Inbre, para
-      clientes de [SEGMENTOS], parte deles dentro de nutrição e fitness, parte fora.</p>
+    <!-- TODO: [NÚMERO] anos, [SEGMENTOS] anteriores e [MÊS/ANO] de nascimento da marca -->
+    <p style="margin-top:20px">A Inbre nasceu em [MÊS/ANO]. O trabalho que ela organiza é mais
+      velho que ela: são [NÚMERO] anos editando vídeo para clientes de [SEGMENTOS], parte deles
+      dentro de nutrição e fitness, parte fora.</p>
     <p>Foi essa variedade que levou ao recorte. Editar para segmentos diferentes ensina rápido o
       que muda de um para o outro: o que prende a atenção de quem procura orientação alimentar
       não é o que prende quem procura outra coisa. Chega uma hora em que dá para atender vários
       razoavelmente bem, ou um muito bem.</p>
-    <p>A Inbre é essa escolha. A marca nasceu em [MÊS/ANO]; o trabalho que ela organiza é mais
-      velho que ela.</p>
-    <p class="assinatura">[NOME] — Inbre</p>
+    <p>A Inbre é essa escolha: um nicho só, feito por quem já editou para vários.</p>
   </div>
 </section>
 
@@ -1290,10 +1291,21 @@ footer a:hover { color: var(--cinza-claro); }
          isto caro. A referência é o centro da tela, não o topo do
          documento: o que manda é a seção que a pessoa está lendo. */
       var calor = calorEm(pos + meiaTela);
-      brasa.style.opacity = calor.toFixed(3);
-      // a neutra acompanha de longe: segura um piso de ambiente no miolo
-      // frio, sem deixar o trecho quente virar monocromia vermelha
-      fria.style.opacity = (0.15 + 0.26 * calor).toFixed(3);
+
+      /* PISO DE 0.28 — não é estética, é limite de 8 bits.
+         Medido: com a camada em opacidade 0.05 o gradiente inteiro sai em 7
+         níveis de cor, com platôs de valor constante de até 130px. Isso não
+         lê como luz fraca, lê como ANEL CONCÊNTRICO, que é justamente o que
+         não pode existir. Acima de ~0.25 ele cruza 13 níveis ou mais e a
+         rampa fica lisa. Não há meio-termo: ou a camada está acima do piso,
+         ou teria que ser zero.
+
+         Por isso o miolo da página esfria por MATIZ, não por apagamento: a
+         camada quente cai para perto do piso e a neutra sobe, invertendo a
+         mistura. O trecho técnico fica cinza e escuro; as pontas ficam
+         brasa. As duas camadas ficam sempre em faixa lisa. */
+      brasa.style.opacity = (0.28 + 0.72 * calor).toFixed(3);
+      fria.style.opacity = (0.42 - 0.10 * calor).toFixed(3);
     }
   }
 
@@ -1333,7 +1345,7 @@ footer a:hover { color: var(--cinza-claro); }
       "section .rotulo", "section h2", "section .sub",
       ".media", ".media-som", ".media-legenda",
       ".pilar", ".fecho", ".grupo-titulo", ".passos li", ".card",
-      ".faq details", ".sobre p", ".assinatura",
+      ".faq details", ".sobre p",
       ".planos-cta", ".planos-nota", ".contato > div"
     ].join(",");
 
