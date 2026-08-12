@@ -556,6 +556,130 @@ footer a:hover { color: var(--cinza-claro); }
   .barra { display: none; }
 }
 
+/* =================================================================
+   CAMADA DE MOVIMENTO
+   Quem abre este site já recebeu a mensagem no WhatsApp e está
+   checando, em trinta segundos e no celular, se a Inbre é séria.
+   Isso decide tudo aqui: o movimento existe para a página não ler
+   como site desativado, e não pode em momento nenhum ler como
+   efeito de agência — efeito é exatamente o que a pessoa
+   desconfiada está procurando.
+
+   Três regras que valem para todo bloco abaixo:
+   a) só transform e opacity — o compositor resolve sem repintar;
+   b) cor nenhuma: o vermelho continua significando só "clique aqui";
+   c) tudo desligado sob prefers-reduced-motion.
+   ================================================================= */
+
+/* --- aura: uma luz baixa que desce junto com a leitura -----------
+   Uma camada só. Não é parallax: não há duas velocidades brigando
+   pela atenção. É um objeto único que acompanha quem lê e faz o
+   preto virar ambiente em vez de vazio. Sem blur — o gradiente
+   radial já entrega a suavidade, e blur em tela cheia é a conta
+   que mata celular antigo. */
+.aura {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  z-index: -1;
+  width: min(160vw, 1200px);
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  opacity: .58;
+  transform: translate3d(-50%, -20vh, 0);
+  will-change: transform, opacity;
+}
+/* Os valores de alfa são altos de propósito. Num preto quase puro, gradiente
+   abaixo de ~0.3 de pico some completamente em tela de celular na rua — que é
+   onde esta página é lida. O resultado aqui chega a uns rgb(40,40,45) no
+   centro: dá volume ao fundo e continua deixando o texto branco muito acima
+   do mínimo de contraste. */
+.aura i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(152, 154, 172, 0.38) 0%,
+    rgba(120, 122, 140, 0.17) 35%,
+    rgba(10, 10, 11, 0) 68%);
+}
+/* Respiração lenta, no filho e não no pai, para não disputar o
+   transform que o JS escreve durante a rolagem. É o que mantém a
+   página viva quando a pessoa para de rolar para ler. */
+@media (prefers-reduced-motion: no-preference) {
+  .aura i { animation: respirar 24s ease-in-out infinite; }
+}
+@keyframes respirar {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.07); }
+}
+
+/* --- fio de progresso --------------------------------------------
+   Dois pixels de cinza no topo. Numa página longa aberta no meio de
+   outra coisa, dizer "você está aqui, falta isto" reduz a chance de
+   abandono — e é o movimento mais barato que existe: um scaleX que
+   segue o dedo, sem inércia nem animação própria. */
+.progresso {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 60;
+  background: var(--cinza-fraco);
+  opacity: .55;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* --- entrada do conteúdo -----------------------------------------
+   A classe `.revelar` é aplicada pelo JS, nunca aqui: sem script, a
+   página inteira continua visível e legível. E o efeito inteiro mora
+   dentro do no-preference, então sob movimento reduzido a classe não
+   faz absolutamente nada, mesmo que seja aplicada. */
+@media (prefers-reduced-motion: no-preference) {
+  .revelar {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .55s ease, transform .55s cubic-bezier(.2, .7, .3, 1);
+  }
+  .revelar.dentro { opacity: 1; transform: none; }
+
+  /* escadinha curta em quem entra em grupo (cards, pilares) */
+  .grade > .revelar:nth-child(2), .pilares > .revelar:nth-child(2) { transition-delay: 70ms; }
+  .grade > .revelar:nth-child(3), .pilares > .revelar:nth-child(3) { transition-delay: 140ms; }
+
+  /* o fio do rótulo cresce junto: amarra o movimento à estrutura
+     numerada da página em vez de decorar por decorar */
+  .rotulo.revelar::before {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .55s .12s ease;
+  }
+  .rotulo.revelar.dentro::before { transform: scaleX(1); }
+
+  /* seta do FAQ acompanhando a abertura */
+  .faq summary::after { transition: transform .22s ease; }
+
+  /* Duas batidas no play quando a prova entra na tela — nudge, não
+     loop. O JS só liga isto quando existe capa de verdade: quadro
+     vazio que pulsa vira holofote na falta. */
+  .media.nudge .media__play { animation: batida 2.4s ease-in-out 2; }
+}
+@keyframes batida {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+/* --- resposta ao toque -------------------------------------------
+   No celular não existe hover. Sem isto, o botão não dá sinal
+   nenhum de que registrou o dedo — e o CTA é a única coisa que
+   precisa parecer sólida nesta página. */
+.cta:active { transform: scale(.985); }
+.media__play:active span { transform: scale(.94); }
+
 /* --- desktop --- */
 @media (min-width: 820px) {
   body { font-size: 18px; }
@@ -569,6 +693,12 @@ footer a:hover { color: var(--cinza-claro); }
 </head>
 
 <body>
+
+<!-- Decoração pura: fora da árvore de acessibilidade, sem captura de toque e
+     sem conteúdo dentro. Se o JS não rodar, ficam parados e inofensivos. -->
+<div class="aura" id="aura" aria-hidden="true"><i></i></div>
+<div class="progresso" id="progresso" aria-hidden="true"></div>
+
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topo">
@@ -962,6 +1092,13 @@ footer a:hover { color: var(--cinza-claro); }
 (function () {
   "use strict";
 
+  /* ---- Preferência de movimento ------------------------------------------
+     Lido uma vez e respeitado por todos os blocos abaixo. Sob movimento
+     reduzido sobra só o fio de progresso, que não é animação: ele segue o
+     dedo em tempo real, como uma barra de rolagem.                          */
+  var consulta = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+  var semMovimento = !!(consulta && consulta.matches);
+
   /* ---- Vídeo sob demanda -------------------------------------------------
      O <video> nasce sem src: nenhum byte de mp4 é baixado no carregamento da
      página. O arquivo só entra no primeiro toque no play.                    */
@@ -1008,6 +1145,126 @@ footer a:hover { color: var(--cinza-claro); }
     new IntersectionObserver(function (entradas) {
       mostrarBarra(!entradas[0].isIntersecting);
     }, { rootMargin: "0px 0px -10% 0px" }).observe(ctaHero);
+  }
+
+  /* ---- Fundo e fio de progresso, dirigidos pela rolagem ------------------
+     UM listener, passivo, coalescido em requestAnimationFrame. Durante a
+     rolagem nada aqui LÊ layout — o alcance da página é medido antes e só é
+     remedido em resize e quando um <details> do FAQ abre, que é a única
+     coisa capaz de mudar a altura do documento. Ler scrollHeight a cada
+     frame seria forçar reflow sessenta vezes por segundo, que é o jeito
+     clássico de travar celular antigo.                                     */
+  var aura = document.getElementById("aura");
+  var fio = document.getElementById("progresso");
+  var alcance = 1;
+  var anterior = -1;
+
+  function medir() {
+    alcance = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  }
+
+  function aplicar(y) {
+    var p = (y === undefined ? window.scrollY : y) / alcance;
+    p = p < 0 ? 0 : (p > 1 ? 1 : p);
+    // escrita só quando o valor mudou de fato: rolagem parada não gera trabalho
+    if (Math.abs(p - anterior) < 0.0005) return;
+    anterior = p;
+
+    if (fio) fio.style.transform = "scaleX(" + p.toFixed(4) + ")";
+
+    /* A luz desce de -20vh a +26vh e abre 22% no caminho. No fim da página
+       ela está embaixo, junto do CTA final — é onde a decisão acontece, e a
+       página vai clareando conforme se aproxima dela. */
+    if (aura && !semMovimento) {
+      aura.style.transform =
+        "translate3d(-50%, " + (-20 + p * 46).toFixed(2) + "vh, 0) scale(" +
+        (1 + p * 0.22).toFixed(3) + ")";
+      aura.style.opacity = (0.58 + p * 0.30).toFixed(3);
+    }
+  }
+
+  /* A posição é lida no evento e só é USADA dentro do rAF. Ler scrollY depois
+     de ter escrito estilo no frame anterior obrigaria o navegador a resolver o
+     layout pendente antes de responder — o clássico layout thrashing. Assim a
+     ordem é sempre ler, depois escrever. */
+  var agendado = false;
+  var posicao = 0;
+  function aoRolar() {
+    posicao = window.scrollY;
+    if (agendado) return;
+    agendado = true;
+    requestAnimationFrame(function () { agendado = false; aplicar(posicao); });
+  }
+
+  medir();
+  aplicar();
+  window.addEventListener("scroll", aoRolar, { passive: true });
+  window.addEventListener("resize", function () {
+    medir(); anterior = -1; aplicar();
+  }, { passive: true });
+  // 'toggle' não borbulha; por isso a captura.
+  document.addEventListener("toggle", function (e) {
+    if (e.target && e.target.tagName === "DETAILS") { medir(); anterior = -1; aplicar(); }
+  }, true);
+
+  /* ---- Entrada do conteúdo ----------------------------------------------
+     A classe que esconde é aplicada AQUI, nunca no CSS: script quebrado =
+     página inteira visível. E só é aplicada a quem já está fora da tela, de
+     modo que o que a pessoa está lendo no primeiro instante nunca pisca.
+
+     Os espaços .vago ficam de fora de propósito: vazio que se mexe continua
+     vazio, só que agora chamando atenção para a falta.                     */
+  if (!semMovimento && "IntersectionObserver" in window) {
+    var seletor = [
+      "section .rotulo", "section h2", "section .sub",
+      ".media", ".media-som", ".media-legenda",
+      ".pilar", ".fecho", ".grupo-titulo", ".passos li", ".card",
+      ".faq details", ".sobre p", ".assinatura",
+      ".planos-cta", ".planos-nota", ".contato > div"
+    ].join(",");
+
+    var alvos = [];
+    Array.prototype.forEach.call(document.querySelectorAll(seletor), function (el) {
+      if (el.classList.contains("vago") || el.querySelector(".vago")) return;
+      // acima da dobra no carregamento: entra visível, sem animação nenhuma
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      el.classList.add("revelar");
+      alvos.push(el);
+    });
+
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("dentro");
+        // uma vez só: reesconder ao subir de volta é o que faz uma página
+        // parecer efeito em vez de documento
+        obs.unobserve(e.target);
+      });
+    /* A margem gigante em cima é de propósito: tudo que já ficou ACIMA da
+       tela conta como visto e revela na hora. Sem isso, um salto instantâneo
+       — âncora #d1, restauração de posição no reload, dedo rápido — deixaria
+       o conteúdo pulado invisível até a pessoa passar por ele de novo. */
+    }, { rootMargin: "100000px 0px -10% 0px", threshold: 0.02 });
+
+    alvos.forEach(function (el) { obs.observe(el); });
+
+    /* ---- Empurrãozinho no play ------------------------------------------
+       Duas batidas quando a prova entra na tela, e para. O vídeo é a coisa
+       mais forte da página e é fácil passar batido por ele no polegar.
+       Só liga se a capa carregou: sem arquivo, o quadro é um vazio, e vazio
+       que pulsa vira holofote na falta.                                    */
+    Array.prototype.forEach.call(document.querySelectorAll(".media[data-video]"), function (media) {
+      var olho = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          if (!media.classList.contains("sem-capa") && !media.classList.contains("tocando")) {
+            media.classList.add("nudge");
+          }
+          olho.unobserve(media);
+        });
+      }, { threshold: 0.4 });
+      olho.observe(media);
+    });
   }
 })();
 </script>
