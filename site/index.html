@@ -133,24 +133,20 @@ section { padding-block: 56px; }
   font-weight: 600;
 }
 
-/* --- trilho numerado: dá espinha à página e diz onde a pessoa está --- */
+/* --- rótulo de seção ---
+   Sem risco decorativo antes do texto e sem numeração: o rótulo nomeia a
+   seção e para por aí. O tratamento tipográfico continua o mesmo (mono,
+   caixa alta, entreletra aberta), que é o que o resto da página usa nos
+   rótulos pequenos, como os números dos pilares e as etiquetas do
+   contato. */
 .rotulo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: block;
   font-family: var(--fonte-mono);
   font-size: 11.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cinza-fraco);
   margin-bottom: 16px;
-}
-.rotulo::before {
-  content: "";
-  width: 22px;
-  height: 1px;
-  background: var(--cinza-fraco);
-  flex: none;
 }
 
 .sub {
@@ -689,15 +685,6 @@ footer a:hover { color: var(--cinza-claro); }
   .grade > .revelar:nth-child(2), .pilares > .revelar:nth-child(2) { transition-delay: 70ms; }
   .grade > .revelar:nth-child(3), .pilares > .revelar:nth-child(3) { transition-delay: 140ms; }
 
-  /* o fio do rótulo cresce junto: amarra o movimento à estrutura
-     numerada da página em vez de decorar por decorar */
-  .rotulo.revelar::before {
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform .55s .12s ease;
-  }
-  .rotulo.revelar.dentro::before { transform: scaleX(1); }
-
   /* seta do FAQ acompanhando a abertura */
   .faq summary::after { transition: transform .22s ease; }
 
@@ -751,7 +738,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 1. HERO ============ -->
 <section class="hero" aria-labelledby="t-hero">
   <div class="wrap">
-    <p class="rotulo">Edição de Reels · nutrição e fitness</p>
+    <p class="rotulo">Edição de Reels para nutrição e fitness</p>
     <h1 id="t-hero">Seu conteúdo é bom.<span class="destaque"> A edição está abaixo dele.</span></h1>
     <p class="sub">
       Estúdio de edição de Reels para nutricionistas e personal trainers. Antes de qualquer
@@ -780,7 +767,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 2. ANTES E DEPOIS ============ -->
 <section aria-labelledby="t-prova">
   <div class="wrap">
-    <p class="rotulo">01 / A prova</p>
+    <p class="rotulo">Demonstração</p>
     <h2 id="t-prova">O mesmo trecho,<span class="destaque"> antes e depois.</span></h2>
     <p class="sub">Nada foi regravado e nenhuma frase foi trocada. O que muda é áudio, corte,
       legenda, ritmo e acabamento.</p>
@@ -805,7 +792,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 3. AUTODIAGNÓSTICO ============ -->
 <section aria-labelledby="t-diag">
   <div class="wrap">
-    <p class="rotulo">02 / O que muda</p>
+    <p class="rotulo">Autodiagnóstico</p>
     <h2 id="t-diag">A Inbre não entrega vídeo cortado.<span class="destaque"> Entrega o segundo
       em que a pessoa para de rolar.</span></h2>
     <p class="sub">Três frentes, na ordem em que o vídeo é julgado por quem assiste. Sob cada
@@ -860,7 +847,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 4. PORTFÓLIO ============ -->
 <section aria-labelledby="t-port">
   <div class="wrap">
-    <p class="rotulo">03 / Trabalhos</p>
+    <p class="rotulo">Portfólio</p>
     <h2 id="t-port">Peças entregues,<span class="destaque"> e o que os clientes
       escreveram.</span></h2>
     <p class="sub">Peças reais, de clientes reais. As de nutrição e fitness vêm primeiro, porque
@@ -919,7 +906,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 6. COMO FUNCIONA ============ -->
 <section aria-labelledby="t-como">
   <div class="wrap">
-    <p class="rotulo">04 / O caminho</p>
+    <p class="rotulo">Processo</p>
     <h2 id="t-como">Como funciona.</h2>
 
     <ol class="passos">
@@ -950,7 +937,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 7. PLANOS ============ -->
 <section aria-labelledby="t-planos">
   <div class="wrap">
-    <p class="rotulo">05 / Planos</p>
+    <p class="rotulo">Planos mensais</p>
     <h2 id="t-planos">Três faixas,<span class="destaque"> por volume mensal.</span></h2>
     <p class="sub">A diferença entre elas é quantos Reels por mês e quanto da produção fica com
       a Inbre. O preço não fica na página: ele aparece depois do diagnóstico, quando você já viu
@@ -1003,7 +990,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 8. SOBRE ============ -->
 <section class="sobre" aria-labelledby="t-sobre">
   <div class="wrap">
-    <p class="rotulo">06 / Sobre</p>
+    <p class="rotulo">Sobre o estúdio</p>
     <!-- O título era "Quem está por trás", que prometia uma pessoa e uma assinatura.
          Sem nome, a promessa não se cumpre: a seção passa a falar do que veio antes
          da marca, que é a informação que de fato sustenta a credibilidade aqui. -->
@@ -1024,8 +1011,11 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 9. FAQ ============ -->
 <section aria-labelledby="t-faq">
   <div class="wrap">
-    <p class="rotulo">07 / Dúvidas</p>
-    <h2 id="t-faq">Perguntas frequentes.</h2>
+    <p class="rotulo">Perguntas frequentes</p>
+    <!-- O título era "Perguntas frequentes.", que ficou idêntico ao rótulo da
+         seção depois que os rótulos viraram nomes formais. Duas linhas iguais
+         empilhadas; por isso o título mudou, e não o rótulo. -->
+    <h2 id="t-faq">O que costumam perguntar.</h2>
 
     <div class="faq">
       <details>
@@ -1076,7 +1066,7 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 10. CTA FINAL ============ -->
 <section class="final" aria-labelledby="t-final">
   <div class="wrap">
-    <p class="rotulo">08 / Próximo passo</p>
+    <p class="rotulo">Contato</p>
     <h2 id="t-final">Manda um vídeo seu.<span class="destaque"> Ele volta editado em 24
       horas.</span></h2>
     <p class="sub">O diagnóstico do seu perfil e um antes e depois feito com o seu vídeo. Sem

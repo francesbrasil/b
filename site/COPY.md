@@ -11,14 +11,15 @@ Este arquivo é a fonte do texto. Editou aqui, reflita no `index.html` (e vice-v
 - O argumento nunca é "seu vídeo é ruim". É "seu conteúdo é bom e a entrega técnica está
   abaixo dele".
 
-**Estrutura** — oito seções numeradas depois do hero, cada uma com um rótulo de trilho
-(`— 02 / O QUE MUDA`). Títulos em dois tons: a primeira frase afirma, a segunda vira em itálico.
+**Estrutura** — oito seções depois do hero, cada uma com um rótulo formal em caixa alta
+(`AUTODIAGNÓSTICO`), sem numeração e sem risco decorativo. Títulos em dois tons: a primeira
+frase afirma, a segunda vira em itálico.
 
 ---
 
 ## Hero
 
-**Rótulo:** Edição de Reels · nutrição e fitness
+**Rótulo:** Edição de Reels para nutrição e fitness
 
 **Título:** Seu conteúdo é bom. *A edição está abaixo dele.*
 
@@ -33,7 +34,7 @@ custo.
 **Faixa de credibilidade:** A marca é nova. O ofício não: são [NÚMERO] anos editando vídeo
 para clientes dentro e fora do nicho.
 
-## 01 / A prova
+## Demonstração
 
 **Título:** O mesmo trecho, *antes e depois.*
 
@@ -45,7 +46,7 @@ legenda, ritmo e acabamento.
 **Crédito:** Peça editada pela Inbre, publicada com autorização do cliente.
 `[CONFIRMAR de quem é a peça]`
 
-## 02 / O que muda
+## Autodiagnóstico
 
 **Título:** A Inbre não entrega vídeo cortado. *Entrega o segundo em que a pessoa para de
 rolar.*
@@ -85,7 +86,7 @@ gratuito aponta. E mostra, com um vídeo seu, como fica quando sai do caminho.
 
 **CTA:** Quero ver isso no meu perfil
 
-## 03 / Trabalhos
+## Portfólio
 
 Portfólio e depoimentos moram na mesma seção: são a mesma coisa — prova de que houve cliente.
 
@@ -99,7 +100,7 @@ trabalho é o mesmo.
 e honestos até a liberação — nenhuma imagem finge ser trabalho entregue.
 
 Cada peça, quando entrar, leva: vídeo · título curto · etiqueta "Resolve: [itens]" com link
-para o item correspondente da seção 02 · e, fora do nicho, a linha "Segmento: [x]".
+para o item correspondente do Autodiagnóstico · e, fora do nicho, a linha "Segmento: [x]".
 
 **Depoimentos:** Prints das conversas, sem retoque no texto. Número, foto e valores foram
 cobertos.
@@ -109,7 +110,7 @@ cobertos.
 **Obrigatório:** cada print precisa de texto alternativo transcrevendo a mensagem. Print é
 imagem — sem transcrição, quem usa leitor de tela não recebe prova nenhuma.
 
-## 04 / O caminho
+## Processo
 
 **Título:** Como funciona.
 
@@ -126,7 +127,7 @@ legenda, capa e identidade visual constantes de um vídeo para o outro.
 **4. Ajuste a cada mês** — O que funcionou volta, o que não funcionou sai. Roteiro, gancho e
 direção de gravação entram conforme a faixa.
 
-## 05 / Planos
+## Planos mensais
 
 **Título:** Três faixas, *por volume mensal.*
 
@@ -144,7 +145,7 @@ trabalho feito com um vídeo seu.
 
 **Nota:** O diagnóstico vem antes da proposta, em qualquer faixa.
 
-## 06 / Sobre
+## Sobre o estúdio
 
 **Título:** O que veio antes *da marca.*
 
@@ -159,9 +160,9 @@ razoavelmente bem, ou um muito bem.
 
 A Inbre é essa escolha: um nicho só, feito por quem já editou para vários.
 
-## 07 / Dúvidas
+## Perguntas frequentes
 
-**Título:** Perguntas frequentes.
+**Título:** O que costumam perguntar.
 
 **Quanto custa?**
 Depende da faixa de volume. O preço aparece na conversa depois do diagnóstico, e não antes,
@@ -194,7 +195,7 @@ A marca existe desde [MÊS/ANO]. O trabalho, há [NÚMERO] anos. Os depoimentos 
 de clientes desse período, alguns anteriores à marca. A Inbre é o recorte desse trabalho em um
 nicho só.
 
-## 08 / Próximo passo
+## Contato
 
 **Título:** Manda um vídeo seu. *Ele volta editado em 24 horas.*
 
@@ -234,6 +235,6 @@ Cada posição manda uma mensagem diferente, para você saber de onde a pessoa s
 | Posição | Mensagem |
 |---|---|
 | Hero | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito do meu perfil. |
-| Seção 02 | Oi, vim pelo site. Me reconheci em alguns pontos da lista e quero o diagnóstico gratuito. |
+| Autodiagnóstico | Oi, vim pelo site. Me reconheci em alguns pontos da lista e quero o diagnóstico gratuito. |
 | Planos | Oi, vim pelo site. Quero entender qual faixa cobre meu volume de Reels. |
-| Próximo passo e barra fixa | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito. |
+| Contato e barra fixa | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito. |
