@@ -185,7 +185,14 @@ section { padding-block: 56px; }
 
 /* --- topo --- */
 .topo { padding-top: 26px; }
+.topo__linha {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;   /* deixa o menu encolher e rolar em vez de estourar a linha */
+}
 .marca {
+  flex: none;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -193,6 +200,68 @@ section { padding-block: 56px; }
   color: var(--branco);
   text-decoration: none;
 }
+
+/* --- atalhos ------------------------------------------------------
+   Seis palavras não cabem numa linha de celular, então a linha rola de
+   lado. Não é hambúrguer de propósito: hambúrguer esconde tudo atrás
+   de um toque e traz estado, foco preso e mais JS. Custo alto demais
+   para uma visita de trinta segundos que só quer achar "quanto custa".
+
+   Âncoras de verdade (<a href="#id">): funcionam sem JS, entram no
+   histórico e abrem em nova aba se a pessoa quiser. */
+.atalhos {
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.atalhos::-webkit-scrollbar { display: none; }
+
+/* Aviso de que há mais itens à direita. É MÁSCARA, não gradiente
+   colorido: assim o texto se dissolve contra o fundo real, seja ele o
+   preto ou a atmosfera quente, sem precisar acertar cor nenhuma. A
+   classe só entra quando sobra conteúdo, então no fim da rolagem a
+   máscara sai e o último item aparece inteiro. */
+.atalhos.tem-mais {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 34px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 34px), transparent);
+}
+.atalhos ul {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0 6px 0 0;
+  list-style: none;
+}
+.atalhos a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;          /* alvo de toque no celular */
+  padding: 0 10px;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--cinza);
+  text-decoration: none;
+}
+.atalhos a:hover { color: var(--branco); }
+
+/* Seção ativa em branco e sublinhada. Sem vermelho, sem exceção: ele
+   continua significando só "clique aqui, é WhatsApp". O sublinhado não
+   ocupa altura, então nada dança quando a seção ativa troca. */
+.atalhos a[aria-current="true"] {
+  color: var(--branco);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+
+/* --- âncoras: folga para o título não nascer colado no topo ---------
+   No celular o cabeçalho rola junto com a página, então basta um
+   respiro. No desktop ele é fixo, e a folga precisa cobrir a altura
+   dele mais uma margem. Valores conferidos na tela, não chutados. */
+section[id], #s-depoimentos { scroll-margin-top: 24px; }
 
 /* --- hero --- */
 .hero { padding-top: 40px; padding-bottom: 44px; }
@@ -558,6 +627,9 @@ footer a:hover { color: var(--cinza-claro); }
 }
 @supports (backdrop-filter: blur(8px)) {
   .barra { backdrop-filter: blur(10px); }
+  /* só no desktop, onde o cabeçalho é fixo e o custo do filtro não cai
+     em cima do aparelho intermediário */
+  @media (min-width: 820px) { .topo { backdrop-filter: blur(10px); } }
 }
 @media (prefers-reduced-motion: no-preference) {
   .barra { transition: transform .22s ease, visibility .22s; }
@@ -707,6 +779,32 @@ footer a:hover { color: var(--cinza-claro); }
 
 /* --- desktop --- */
 @media (min-width: 820px) {
+  /* Aqui o menu pode ser fixo: acima de 820px a barra do rodapé não
+     existe, então não há duas barras fixas disputando a tela. Fino e
+     discreto, sem virar cabeçalho de produto.
+
+     z-index 55 fica ABAIXO do fio de progresso (60), de propósito: o
+     fio é indicador de posição e continua desenhado por cima da borda
+     do cabeçalho, onde ele lê como um filete no topo da barra. O outro
+     caminho, empurrar o cabeçalho 2px para baixo, deixaria uma fresta
+     por onde o conteúdo passaria rolando. */
+  .topo {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 55;
+    padding-top: 0;
+    background: rgba(10, 10, 11, 0.88);
+    border-bottom: 1px solid var(--linha);
+  }
+  .topo__linha { min-height: 54px; }
+  body { padding-top: 55px; }   /* compensa a saída do cabeçalho do fluxo */
+
+  .atalhos a { font-size: 13.5px; padding: 0 12px; }
+  /* no desktop os seis itens cabem inteiros: nada para mascarar */
+  .atalhos.tem-mais { -webkit-mask-image: none; mask-image: none; }
+
+  section[id], #s-depoimentos { scroll-margin-top: 78px; }
+
   body { font-size: 18px; }
   section { padding-block: 88px; }
   .hero { padding-top: 60px; padding-bottom: 64px; }
@@ -730,7 +828,25 @@ footer a:hover { color: var(--cinza-claro); }
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topo">
-  <div class="wrap"><a class="marca" href="#" aria-label="Inbre, início da página">inbre</a></div>
+  <div class="wrap topo__linha">
+    <a class="marca" href="#" aria-label="Inbre, início da página">inbre</a>
+
+    <!-- Seis atalhos, não nove. Quem chega aqui veio checar uma dúvida
+         específica (quanto custa, quem é, tem trabalho feito), não explorar
+         o site. Autodiagnóstico, Processo e Contato ficam de fora: o
+         primeiro se lê no caminho, e os outros dois a pessoa alcança pelos
+         CTAs, que estão em toda parte. -->
+    <nav class="atalhos" id="atalhos" aria-label="Seções do site">
+      <ul>
+        <li><a href="#s-demonstracao">Demonstração</a></li>
+        <li><a href="#s-portfolio">Portfólio</a></li>
+        <li><a href="#s-depoimentos">Depoimentos</a></li>
+        <li><a href="#s-planos">Planos</a></li>
+        <li><a href="#s-sobre">Sobre</a></li>
+        <li><a href="#s-duvidas">Dúvidas</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main id="conteudo">
@@ -765,7 +881,7 @@ footer a:hover { color: var(--cinza-claro); }
 </div>
 
 <!-- ============ 2. ANTES E DEPOIS ============ -->
-<section aria-labelledby="t-prova">
+<section id="s-demonstracao" tabindex="-1" aria-labelledby="t-prova">
   <div class="wrap">
     <p class="rotulo">Demonstração</p>
     <h2 id="t-prova">O mesmo trecho,<span class="destaque"> antes e depois.</span></h2>
@@ -845,7 +961,7 @@ footer a:hover { color: var(--cinza-claro); }
 </section>
 
 <!-- ============ 4. PORTFÓLIO ============ -->
-<section aria-labelledby="t-port">
+<section id="s-portfolio" tabindex="-1" aria-labelledby="t-port">
   <div class="wrap">
     <p class="rotulo">Portfólio</p>
     <h2 id="t-port">Peças entregues,<span class="destaque"> e o que os clientes
@@ -882,13 +998,21 @@ footer a:hover { color: var(--cinza-claro); }
     </figure>
     -->
 
-    <p class="grupo-titulo" id="t-dep">Depoimentos</p>
-    <p class="sub">Prints das conversas, sem retoque no texto. Número, foto e valores foram
-      cobertos.</p>
+    <!-- Depoimentos não é uma <section>: é um bloco dentro do Portfólio, e
+         continua sendo. Este invólucro existe só para o atalho ter onde
+         pousar, já que apontar para o topo do Portfólio levaria a pessoa
+         para o lugar errado. `role="group"` com `aria-labelledby` faz o
+         leitor de tela anunciar "Depoimentos" ao receber o foco, sem
+         inventar um landmark novo na página. -->
+    <div id="s-depoimentos" tabindex="-1" role="group" aria-labelledby="t-dep">
+      <p class="grupo-titulo" id="t-dep">Depoimentos</p>
+      <p class="sub">Prints das conversas, sem retoque no texto. Número, foto e valores foram
+        cobertos.</p>
 
-    <div class="grade">
-      <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
-      <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
+      <div class="grade">
+        <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
+        <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
+      </div>
     </div>
 
     <!-- TODO: modelo de depoimento. Copie, cole no lugar de um `.vago` e preencha.
@@ -935,7 +1059,7 @@ footer a:hover { color: var(--cinza-claro); }
 </section>
 
 <!-- ============ 7. PLANOS ============ -->
-<section aria-labelledby="t-planos">
+<section id="s-planos" tabindex="-1" aria-labelledby="t-planos">
   <div class="wrap">
     <p class="rotulo">Planos mensais</p>
     <h2 id="t-planos">Três faixas,<span class="destaque"> por volume mensal.</span></h2>
@@ -988,7 +1112,7 @@ footer a:hover { color: var(--cinza-claro); }
 </section>
 
 <!-- ============ 8. SOBRE ============ -->
-<section class="sobre" aria-labelledby="t-sobre">
+<section class="sobre" id="s-sobre" tabindex="-1" aria-labelledby="t-sobre">
   <div class="wrap">
     <p class="rotulo">Sobre o estúdio</p>
     <!-- O título era "Quem está por trás", que prometia uma pessoa e uma assinatura.
@@ -1009,7 +1133,7 @@ footer a:hover { color: var(--cinza-claro); }
 </section>
 
 <!-- ============ 9. FAQ ============ -->
-<section aria-labelledby="t-faq">
+<section id="s-duvidas" tabindex="-1" aria-labelledby="t-faq">
   <div class="wrap">
     <p class="rotulo">Perguntas frequentes</p>
     <!-- O título era "Perguntas frequentes.", que ficou idêntico ao rótulo da
@@ -1178,6 +1302,76 @@ footer a:hover { color: var(--cinza-claro); }
       mostrarBarra(!entradas[0].isIntersecting);
     }, { rootMargin: "0px 0px -10% 0px" }).observe(ctaHero);
   }
+
+  /* ---- Atalhos do topo ---------------------------------------------------
+     Os links são âncoras de verdade e já funcionam sozinhos. O JS aqui
+     acrescenta só duas coisas, ambas dispensáveis: o destaque da seção
+     atual e o aviso de que a linha rola para o lado. Sem script, o menu
+     continua navegando; perde o destaque, e nada mais.                     */
+  var atalhos = document.getElementById("atalhos");
+
+  if (atalhos) {
+    var links = Array.prototype.slice.call(atalhos.querySelectorAll("a[href^='#']"));
+
+    /* Destaque da seção atual. A faixa de -45% em cima e embaixo deixa
+       "ativa" só a seção que cruza o meio da tela, então em geral há
+       exatamente uma. Quando nenhuma está na faixa — o hero, ou as seções
+       sem atalho — o último destaque permanece, que pisca menos do que
+       apagar tudo a cada passagem. */
+    if ("IntersectionObserver" in window) {
+      var linkDe = {};
+      links.forEach(function (a) {
+        var alvo = document.getElementById(a.getAttribute("href").slice(1));
+        if (alvo) linkDe[alvo.id] = a;
+      });
+
+      var vigia = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var a = linkDe[e.target.id];
+          if (!a) return;
+          links.forEach(function (o) { o.removeAttribute("aria-current"); });
+          a.setAttribute("aria-current", "true");
+        });
+      }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+
+      Object.keys(linkDe).forEach(function (id) {
+        vigia.observe(document.getElementById(id));
+      });
+    }
+
+    /* Aviso de mais itens à direita. Só o próprio menu é escutado, passivo
+       e coalescido em rAF; a leitura de largura acontece aqui e não durante
+       a rolagem da página. */
+    var agendadoMenu = false;
+    function medirMenu() {
+      atalhos.classList.toggle(
+        "tem-mais",
+        atalhos.scrollLeft + atalhos.clientWidth < atalhos.scrollWidth - 2
+      );
+    }
+    function aoRolarMenu() {
+      if (agendadoMenu) return;
+      agendadoMenu = true;
+      requestAnimationFrame(function () { agendadoMenu = false; medirMenu(); });
+    }
+    medirMenu();
+    atalhos.addEventListener("scroll", aoRolarMenu, { passive: true });
+    window.addEventListener("resize", medirMenu, { passive: true });
+  }
+
+  /* ---- Foco no destino do atalho ----------------------------------------
+     Sem isto o foco do teclado fica parado no menu depois do salto, e o
+     próximo Tab volta para o item seguinte do menu em vez de entrar na
+     seção. Os alvos têm tabindex="-1" para receber foco sem entrar na ordem
+     de tabulação. `preventScroll` porque quem rola é a âncora, não o foco.
+     Escuta hashchange, e não click, para valer também no teclado e para
+     quem cola o link direto na barra de endereço.                          */
+  window.addEventListener("hashchange", function () {
+    var alvo = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (!alvo || !alvo.hasAttribute("tabindex")) return;
+    try { alvo.focus({ preventScroll: true }); } catch (erro) { alvo.focus(); }
+  });
 
   /* ---- Fundo e fio de progresso, dirigidos pela rolagem ------------------
      UM listener, passivo, coalescido em requestAnimationFrame. Durante a
