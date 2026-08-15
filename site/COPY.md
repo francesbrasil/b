@@ -38,13 +38,21 @@ para clientes dentro e fora do nicho.
 
 **Título:** O mesmo trecho, *antes e depois.*
 
-**Subtítulo:** Nada foi regravado e nenhuma frase foi trocada. O que muda é áudio, corte,
-legenda, ritmo e acabamento.
+**Subtítulo:** Nada foi regravado e nenhuma frase foi trocada. O assunto, a explicação e o seu
+jeito de dizer estão iguais nos dois lados. O que muda é a entrega: áudio, corte, legenda,
+ritmo e acabamento.
 
 **Aviso de som:** Assista com som. Metade do que muda é áudio.
 
 **Crédito:** Peça editada pela Inbre, publicada com autorização do cliente.
 `[CONFIRMAR de quem é a peça]`
+
+**Fecho, depois do vídeo:** Seu conteúdo não precisa ficar melhor para o vídeo ser assistido
+até o fim. Ele precisa chegar inteiro em quem está com o celular na mão, sem som, no meio de
+outra coisa.
+
+E tem a conta das horas. Montar um Reels assim toma tempo do atendimento, da gravação e do
+descanso. Com a Inbre esse tempo volta para você, e o vídeo continua saindo.
 
 ## Autodiagnóstico
 
