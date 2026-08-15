@@ -76,14 +76,13 @@ de publicar.
 Trava seções específicas, não o site inteiro:
 
 - entregas exatas de cada plano
-- peças de portfólio (+ autorização) e a que item da seção 02 cada uma responde
 - prints de depoimentos, com primeiro nome, @ e segmento
 - segmentos anteriores à Inbre, na seção Sobre
 - a grade de contato do fim: `[NÚMERO VISÍVEL]`, `@[INSTAGRAM]`, `[EMAIL]` e `[CNPJ]`
   (o CNPJ é opcional, mas é o item que mais pesa em quem veio checar se a Inbre é real;
   se não houver, apague a linha inteira em vez de deixar vazia)
 
-## Como adicionar peças e depoimentos
+## Como adicionar depoimentos
 
 O `index.html` traz, dentro de cada seção, um bloco em comentário com o markup pronto de um
 card preenchido. Copie o comentário, cole no lugar de um espaço vazio e troque os valores.

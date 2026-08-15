@@ -418,11 +418,8 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
 .fecho p { color: var(--cinza-claro); }
 .fecho .cta { margin-top: 18px; }
 
-/* --- grades (portfólio, planos, passos) --- */
+/* --- grades (depoimentos, planos, passos) --- */
 .grade { display: grid; gap: 14px; margin-top: 28px; }
-@media (min-width: 620px) {
-  .grade--peca { grid-template-columns: repeat(2, 1fr); }
-}
 
 .card {
   background: var(--carvao);
@@ -442,19 +439,6 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
 }
 .vago b { display: block; color: var(--cinza); font-weight: 600; font-size: 15px; }
 .vago small { display: block; margin-top: 6px; font-size: 13px; line-height: 1.5; }
-/* Enquanto as peças não chegam, o espaço vazio fica compacto: quatro molduras
-   9/16 vazias seriam três telas de nada logo antes dos depoimentos. */
-.grade--vagas { grid-template-columns: repeat(2, 1fr); }
-.vago--peca { min-height: 132px; display: grid; align-content: center; }
-
-.grupo-titulo {
-  margin-top: 34px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cinza-fraco);
-}
 
 /* --- depoimentos --- */
 .depoimento figcaption {
@@ -810,7 +794,7 @@ footer a:hover { color: var(--cinza-claro); }
   .hero { padding-top: 60px; padding-bottom: 64px; }
   /* no celular o CTA ocupa a largura toda (alvo de toque); no desktop, não */
   .cta--bloco { display: inline-flex; width: auto; }
-  .media, .media-legenda, .media-som, .vago--peca { max-width: 360px; }
+  .media, .media-legenda, .media-som { max-width: 360px; }
 }
 </style>
 </head>
@@ -839,7 +823,6 @@ footer a:hover { color: var(--cinza-claro); }
     <nav class="atalhos" id="atalhos" aria-label="Seções do site">
       <ul>
         <li><a href="#s-demonstracao">Demonstração</a></li>
-        <li><a href="#s-portfolio">Portfólio</a></li>
         <li><a href="#s-depoimentos">Depoimentos</a></li>
         <li><a href="#s-planos">Planos</a></li>
         <li><a href="#s-sobre">Sobre</a></li>
@@ -961,58 +944,20 @@ footer a:hover { color: var(--cinza-claro); }
 </section>
 
 <!-- ============ 4. PORTFÓLIO ============ -->
-<section id="s-portfolio" tabindex="-1" aria-labelledby="t-port">
+<!-- Antes esta seção era Portfólio, com os depoimentos como bloco interno.
+     O portfólio saiu inteiro e a seção passou a ser só de depoimentos, então
+     o invólucro que existia só para o atalho pousar deixou de fazer sentido:
+     o id do atalho subiu para a própria <section>, e com ele o tabindex. -->
+<section id="s-depoimentos" tabindex="-1" aria-labelledby="t-dep">
   <div class="wrap">
-    <p class="rotulo">Portfólio</p>
-    <h2 id="t-port">Peças entregues,<span class="destaque"> e o que os clientes
-      escreveram.</span></h2>
-    <p class="sub">Peças reais, de clientes reais. As de nutrição e fitness vêm primeiro, porque
-      são o nicho da Inbre. Depois vêm as de outros segmentos, anteriores à marca. Estão aqui
-      porque o trabalho é o mesmo.</p>
+    <p class="rotulo">Depoimentos</p>
+    <h2 id="t-dep">O que os clientes<span class="destaque"> escreveram.</span></h2>
+    <p class="sub">Prints das conversas, sem retoque no texto. Número, foto e valores foram
+      cobertos.</p>
 
-    <p class="grupo-titulo">Nutrição e fitness</p>
-    <div class="grade grade--peca grade--vagas">
-      <div class="vago vago--peca"><b>Peça em liberação</b><small>Entra assim que o cliente autorizar.</small></div>
-      <div class="vago vago--peca"><b>Peça em liberação</b><small>Entra assim que o cliente autorizar.</small></div>
-    </div>
-
-    <p class="grupo-titulo">Outros segmentos, antes da Inbre</p>
-    <div class="grade grade--peca grade--vagas">
-      <div class="vago vago--peca"><b>Peça em liberação</b><small>Entra assim que o cliente autorizar.</small></div>
-      <div class="vago vago--peca"><b>Peça em liberação</b><small>Entra assim que o cliente autorizar.</small></div>
-    </div>
-
-    <!-- TODO: modelo de peça pronta. Copie este bloco, cole no lugar de um `.vago` e preencha.
-         Ao colocar a primeira peça de verdade no grupo, tire a classe `grade--vagas` do
-         contêiner: ela é só o estado compacto de espera.
-    <figure style="margin:0">
-      <div class="media" data-video="assets/portfolio/NOME.mp4">
-        <img src="assets/portfolio/NOME.jpg" width="1080" height="1920" alt="DESCREVER A PEÇA" decoding="async" loading="lazy">
-        <button type="button" class="media__play" aria-label="Reproduzir a peça TÍTULO"><span><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
-      </div>
-      <figcaption class="media-legenda" style="text-align:left">
-        <b style="color:var(--branco);display:block;font-size:15px">TÍTULO CURTO DA PEÇA</b>
-        Resolve: <a href="#d1">áudio</a> e <a href="#d2">legenda</a>.
-        <br>Segmento: SEGMENTO  (só nas peças de fora do nicho)
-      </figcaption>
-    </figure>
-    -->
-
-    <!-- Depoimentos não é uma <section>: é um bloco dentro do Portfólio, e
-         continua sendo. Este invólucro existe só para o atalho ter onde
-         pousar, já que apontar para o topo do Portfólio levaria a pessoa
-         para o lugar errado. `role="group"` com `aria-labelledby` faz o
-         leitor de tela anunciar "Depoimentos" ao receber o foco, sem
-         inventar um landmark novo na página. -->
-    <div id="s-depoimentos" tabindex="-1" role="group" aria-labelledby="t-dep">
-      <p class="grupo-titulo" id="t-dep">Depoimentos</p>
-      <p class="sub">Prints das conversas, sem retoque no texto. Número, foto e valores foram
-        cobertos.</p>
-
-      <div class="grade">
-        <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
-        <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
-      </div>
+    <div class="grade">
+      <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
+      <div class="vago"><b>Print em liberação</b><small>Conversa real de cliente, publicada com autorização.</small></div>
     </div>
 
     <!-- TODO: modelo de depoimento. Copie, cole no lugar de um `.vago` e preencha.
@@ -1527,7 +1472,7 @@ footer a:hover { color: var(--cinza-claro); }
     var seletor = [
       "section .rotulo", "section h2", "section .sub",
       ".media", ".media-som", ".media-legenda",
-      ".pilar", ".fecho", ".grupo-titulo", ".passos li", ".card",
+      ".pilar", ".fecho", ".passos li", ".card",
       ".faq details", ".sobre p",
       ".planos-cta", ".planos-nota", ".contato > div"
     ].join(",");

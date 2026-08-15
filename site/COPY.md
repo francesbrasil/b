@@ -11,7 +11,7 @@ Este arquivo é a fonte do texto. Editou aqui, reflita no `index.html` (e vice-v
 - O argumento nunca é "seu vídeo é ruim". É "seu conteúdo é bom e a entrega técnica está
   abaixo dele".
 
-**Estrutura** — oito seções depois do hero, cada uma com um rótulo formal em caixa alta
+**Estrutura** — sete seções depois do hero, cada uma com um rótulo formal em caixa alta
 (`AUTODIAGNÓSTICO`), sem numeração e sem risco decorativo. Títulos em dois tons: a primeira
 frase afirma, a segunda vira em itálico.
 
@@ -86,24 +86,15 @@ gratuito aponta. E mostra, com um vídeo seu, como fica quando sai do caminho.
 
 **CTA:** Quero ver isso no meu perfil
 
-## Portfólio
+## Depoimentos
 
-Portfólio e depoimentos moram na mesma seção: são a mesma coisa — prova de que houve cliente.
+**Título:** O que os clientes *escreveram.*
 
-**Título:** Peças entregues, *e o que os clientes escreveram.*
-
-**Subtítulo:** Peças reais, de clientes reais. As de nutrição e fitness vêm primeiro, porque são
-o nicho da Inbre. Depois vêm as de outros segmentos, anteriores à marca. Estão aqui porque o
-trabalho é o mesmo.
-
-**Estado atual:** peças e prints pendentes de autorização dos clientes. Os espaços ficam vazios
-e honestos até a liberação — nenhuma imagem finge ser trabalho entregue.
-
-Cada peça, quando entrar, leva: vídeo · título curto · etiqueta "Resolve: [itens]" com link
-para o item correspondente do Autodiagnóstico · e, fora do nicho, a linha "Segmento: [x]".
-
-**Depoimentos:** Prints das conversas, sem retoque no texto. Número, foto e valores foram
+**Subtítulo:** Prints das conversas, sem retoque no texto. Número, foto e valores foram
 cobertos.
+
+**Estado atual:** prints pendentes de autorização dos clientes. Os espaços ficam vazios e
+honestos até a liberação — nenhuma imagem finge ser prova.
 
 **Atribuição:** [Primeiro nome] · @[instagram] · [segmento]
 
