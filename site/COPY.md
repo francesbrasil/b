@@ -12,7 +12,7 @@ Este arquivo é a fonte do texto. Editou aqui, reflita no `index.html` (e vice-v
   abaixo dele".
 
 **Estrutura** — sete seções depois do hero, cada uma com um rótulo formal em caixa alta
-(`AUTODIAGNÓSTICO`), sem numeração e sem risco decorativo. Títulos em dois tons: a primeira
+(`A EDIÇÃO`), sem numeração e sem risco decorativo. Títulos em dois tons: a primeira
 frase afirma, a segunda vira em itálico.
 
 ---
@@ -31,7 +31,7 @@ custo.
 
 **Nota sob o CTA:** Você vê o trabalho antes de ouvir preço.
 
-**Faixa de credibilidade:** A marca é nova. O ofício não: são [NÚMERO] anos editando vídeo
+**Faixa de credibilidade:** A marca é nova. O ofício não: são 4 anos editando vídeo
 para clientes dentro e fora do nicho.
 
 ## Demonstração
@@ -54,43 +54,42 @@ outra coisa.
 E tem a conta das horas. Montar um Reels assim toma tempo do atendimento, da gravação e do
 descanso. Com a Inbre esse tempo volta para você, e o vídeo continua saindo.
 
-## Autodiagnóstico
+## A edição
 
 **Título:** A Inbre não entrega vídeo cortado. *Entrega o segundo em que a pessoa para de
 rolar.*
 
 **Subtítulo:** Três frentes, na ordem em que o vídeo é julgado por quem assiste. Sob cada uma,
-o que costuma estar acontecendo hoje.
+o que a Inbre faz com o material que você já grava.
 
-Os dez itens do autodiagnóstico continuam todos aqui — o que mudou é que deixaram de ser dez
-linhas de peso igual e passaram a viver sob três frentes, nomeadas pelo efeito em quem assiste,
-nunca pelo defeito de quem grava.
+Os dez pontos eram uma lista de defeitos do material de quem chega, e liam como boletim. Agora
+dizem o que a edição faz. Os mesmos dez continuam aqui, um a um.
 
 ### 01 · O que chega
 A maior parte assiste sem som, no meio de outra coisa. Se a primeira frase não chega, o resto
 do vídeo não existe.
 
-- Áudio abafado, com eco ou volume baixo
-- Sem legenda, ou legenda automática mal feita
+- Áudio limpo, sem eco e no volume certo
+- Legenda conferida palavra por palavra, não a automática
 
 ### 02 · O que segura
 A melhor parte do seu conteúdo quase sempre está no meio. É lá que quase ninguém chega.
 
-- Gancho fraco nos 3 primeiros segundos
-- Enquadramento errado: horizontal, cabeça cortada, longe demais
-- Demora para entregar o conteúdo
-- Ritmo lento, sem cortes, com pausas
-- Só falando parado para a câmera, sem imagens de apoio
+- Gancho montado nos 3 primeiros segundos
+- Enquadramento ajustado no corte: vertical, na altura certa
+- O conteúdo entregue logo, sem rodeio no começo
+- Ritmo fechado, sem pausa morta
+- Imagens de apoio entrando onde a fala pede
 
 ### 03 · O que fica
-Um vídeo que ninguém associa a você, e que não leva a lugar nenhum, some no dia seguinte.
+Um vídeo solto rende um dia. Um conjunto que a pessoa reconhece de longe rende meses.
 
-- Sem chamada no fim: alcance que não vira consulta nem aluno
-- Capas sem padrão
-- Sem identidade visual: cor e fonte mudam a cada vídeo
+- Chamada no fim, para quem assistiu saber o próximo passo
+- Capas no mesmo padrão, para o perfil ler de relance
+- Cor e fonte iguais em todos os vídeos
 
-**Fecho:** Reconheceu seu perfil em alguma das três? É exatamente isso que o diagnóstico
-gratuito aponta. E mostra, com um vídeo seu, como fica quando sai do caminho.
+**Fecho:** O diagnóstico gratuito mostra quais dessas três frentes pesam mais no seu perfil
+hoje. E mostra também, com um vídeo seu, como fica depois.
 
 **CTA:** Quero ver isso no meu perfil
 
@@ -148,7 +147,7 @@ trabalho feito com um vídeo seu.
 
 **Título:** O que veio antes *da marca.*
 
-A Inbre nasceu em [MÊS/ANO]. O trabalho que ela organiza é mais velho que ela: são [NÚMERO]
+A Inbre nasceu em [MÊS/ANO]. O trabalho que ela organiza é mais velho que ela: são 4
 anos editando vídeo para clientes de [SEGMENTOS], parte deles dentro de nutrição e fitness,
 parte fora.
 
@@ -190,7 +189,7 @@ antes e depois editado com esse trecho. É gratuito e não gera compromisso.
 `[CONFIRMAR: a pessoa pode publicar o antes/depois que recebeu?]`
 
 **Há quanto tempo a Inbre existe?**
-A marca existe desde [MÊS/ANO]. O trabalho, há [NÚMERO] anos. Os depoimentos desta página são
+A marca existe desde [MÊS/ANO]. O trabalho, há 4 anos. Os depoimentos desta página são
 de clientes desse período, alguns anteriores à marca. A Inbre é o recorte desse trabalho em um
 nicho só.
 
