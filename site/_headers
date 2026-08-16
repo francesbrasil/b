@@ -1,6 +1,12 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# as fontes têm nome estável, então valem cache longo e CORS liberado para o
+# caso de a página um dia ser servida de um domínio e a fonte de outro
+/assets/fontes/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
 /*
   Cache-Control: public, max-age=300, must-revalidate
   X-Content-Type-Options: nosniff

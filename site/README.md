@@ -7,11 +7,26 @@ descrevem aquele projeto, não este.
 ## Arquivos
 
 ```
-index.html   a página inteira: HTML + CSS + JS inline, sem framework e sem build
-COPY.md      o texto como fonte de edição — mudou aqui, reflita no index.html
-_headers     regras de cache do Cloudflare Pages
-assets/      vídeos, capas, logo, favicon, imagem de preview
+index.html      a página inteira: HTML + CSS + JS inline, sem framework e sem build
+COPY.md         o texto como fonte de edição — mudou aqui, reflita no index.html
+_headers        regras de cache do Cloudflare Pages
+assets/         vídeos, capas, logo, favicon, imagem de preview
+assets/fontes/  Instrument Serif (só o subconjunto latino) + a licença OFL
 ```
+
+## Fonte
+
+Os títulos usam **Instrument Serif**, hospedada aqui mesmo em `assets/fontes/`: duas
+requisições, 42 KB somando romana e itálica, só o subconjunto latino (que já cobre todo o
+português). `font-display: swap` garante que o texto apareça na hora, na fonte do sistema, e
+troque quando a outra chegar — o título nunca fica invisível esperando. Georgia continua como
+reserva, então se o arquivo não chegar a página não muda de forma, só de fonte.
+
+Licença SIL Open Font 1.1, copiada em `assets/fontes/OFL.txt`. Se trocar de fonte, troque a
+licença junto.
+
+O corpo do texto segue na pilha do sistema, sem download. Trocar também o corpo dobraria o
+peso para ganhar bem menos: quem lê num celular na rua repara no título, não no parágrafo.
 
 ## Rodar localmente
 

@@ -32,9 +32,11 @@
    --------------------------------------------------------------- */
 :root {
   --preto:        #0A0A0B;
-  --carvao:       #141416;
-  --carvao-alto:  #1A1A1D;
-  --linha:        #232326;
+  /* O carvão era levemente azulado (B acima de R). Virou levemente quente,
+     o que tira o frio da página sem que ninguém consiga nomear a cor. */
+  --carvao:       #161513;
+  --carvao-alto:  #1C1A18;
+  --linha:        #252320;
   --branco:       #F5F5F4;
   --cinza-claro:  #C7C7CC;
   --cinza:        #A1A1A6;
@@ -43,6 +45,15 @@
      4.5. Qualquer brasa visível no fundo o derrubava. Este dá 4.95:1 mesmo
      no ponto mais quente da página. */
   --cinza-fraco:  #8A8A90;
+
+  /* Pastéis, sempre dessaturados e sempre em TEXTO ou marca pequena, nunca
+     em mancha de fundo: blob colorido em página escura vira produto de
+     tecnologia, que é justamente o que este site não pode parecer.
+     Nenhum deles chega perto do vermelho do CTA: o de areia tem R, G e B a
+     poucos pontos de distância, e os outros dois têm verde e azul no topo. */
+  --areia:        #E6D7C3;   /* metade itálica dos títulos, em toda a página */
+  --salvia:       #A9C7A1;   /* primeira frente da seção A edição */
+  --nevoa:        #A2BAD0;   /* terceira frente */
   /* Os TRÊS vermelhos da página, juntos de propósito — a relação entre eles é
      o que faz o CTA continuar significando "clique aqui".
 
@@ -64,8 +75,32 @@
   /* Serif do sistema nos títulos, sem baixar fonte nenhuma: dá o ar editorial
      sem custo de carregamento. Mono só nos rótulos de seção. */
   --fonte: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --fonte-titulo: Georgia, "Times New Roman", Times, serif;
+  --fonte-titulo: "Instrument Serif", Georgia, "Times New Roman", Times, serif;
   --fonte-mono: ui-monospace, SFMono-Regular, Menlo, "Roboto Mono", monospace;
+}
+
+/* Instrument Serif, hospedada aqui mesmo. Georgia continua como reserva:
+   se o arquivo não chegar, a página não muda de forma, só de fonte.
+   `swap` para o texto aparecer na hora, na fonte do sistema, e trocar
+   quando a outra chegar: o título nunca fica invisível esperando.
+   Só o subconjunto latino, que já cobre todo o português. 41 KB somando
+   as duas, contra 130 da Fraunces e 256 da Newsreader, que era o preço de
+   ter personalidade sem pesar. Licença OFL em assets/fontes/OFL.txt. */
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fontes/instrument-serif-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2122;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fontes/instrument-serif-latin-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2122;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -87,18 +122,24 @@ body {
   overflow-x: hidden;
 }
 
+/* A Instrument Serif tem um peso só, e já é de display: não precisa de
+   negrito para pesar. Sem o 700, o navegador para de engordar a forma por
+   conta própria, que é o que deixava o título com cara de padrão. */
 h1, h2, h3 {
   margin: 0;
   font-family: var(--fonte-titulo);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
   text-wrap: balance;
 }
 
 /* Segunda metade do título, em itálico e mais apagada: separa a afirmação da
    virada sem gastar cor — o vermelho continua só no CTA. */
-.destaque { font-style: italic; font-weight: 400; color: var(--cinza-claro); }
+/* O itálico era cinza neutro. Em areia, a mesma frase passa a ter
+   temperatura, e a página inteira sai do preto e branco sem gastar o
+   vermelho. */
+.destaque { font-style: italic; font-weight: 400; color: var(--areia); }
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; }
 
@@ -265,8 +306,7 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
 /* --- hero --- */
 .hero { padding-top: 40px; padding-bottom: 44px; }
 .hero h1 {
-  font-size: clamp(31px, 8.4vw, 46px);
-  font-weight: 700;
+  font-size: clamp(33px, 9vw, 52px);
 }
 .hero .sub { font-size: 17px; max-width: 34em; }
 .hero .cta { margin-top: 30px; }
@@ -393,6 +433,19 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
   padding: 6px 10px 6px 18px;
   margin: -6px -10px -6px 0;
 }
+/* Cada frente ganha um tom no número e nos traços da lista. Não é enfeite:
+   é o que faz as três se separarem de relance numa seção que, fora isso, é
+   toda cinza. Tudo em texto e marca de 1px, nunca em mancha de fundo. */
+.pilares > .pilar:nth-child(1) h3,
+.pilares > .pilar:nth-child(1)::before    { color: var(--salvia); }
+.pilares > .pilar:nth-child(1) li::before { background: var(--salvia); }
+.pilares > .pilar:nth-child(2) h3,
+.pilares > .pilar:nth-child(2)::before    { color: var(--areia); }
+.pilares > .pilar:nth-child(2) li::before { background: var(--areia); }
+.pilares > .pilar:nth-child(3) h3,
+.pilares > .pilar:nth-child(3)::before    { color: var(--nevoa); }
+.pilares > .pilar:nth-child(3) li::before { background: var(--nevoa); }
+
 @media (min-width: 700px) {
   /* Título à esquerda, conteúdo à direita — sem deixar meia coluna vazia. */
   .pilar {
@@ -1031,9 +1084,8 @@ footer a:hover { color: var(--cinza-claro); }
          da marca, que é a informação que de fato sustenta a credibilidade aqui. -->
     <h2 id="t-sobre">O que veio antes<span class="destaque"> da marca.</span></h2>
 
-    <!-- TODO: [SEGMENTOS] anteriores à Inbre -->
     <p style="margin-top:20px">A Inbre nasceu em junho de 2026. O trabalho que ela organiza é mais
-      velho que ela: são 4 anos editando vídeo para clientes de [SEGMENTOS], parte deles
+      velho que ela: são 4 anos editando vídeo para clientes de diversos segmentos, parte deles
       dentro de nutrição e fitness, parte fora.</p>
     <p>Foi essa variedade que levou ao recorte. Editar para segmentos diferentes ensina rápido o
       que muda de um para o outro: o que prende a atenção de quem procura orientação alimentar

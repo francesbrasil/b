@@ -158,8 +158,8 @@ por mês e a Inbre manda o orçamento junto com o diagnóstico gratuito do seu p
 **Título:** O que veio antes *da marca.*
 
 A Inbre nasceu em junho de 2026. O trabalho que ela organiza é mais velho que ela: são 4
-anos editando vídeo para clientes de [SEGMENTOS], parte deles dentro de nutrição e fitness,
-parte fora.
+anos editando vídeo para clientes de diversos segmentos, parte deles dentro de nutrição e
+fitness, parte fora.
 
 Foi essa variedade que levou ao recorte. Editar para segmentos diferentes ensina rápido o que
 muda de um para o outro: o que prende a atenção de quem procura orientação alimentar não é o
