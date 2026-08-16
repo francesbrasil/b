@@ -46,14 +46,13 @@
      no ponto mais quente da página. */
   --cinza-fraco:  #8A8A90;
 
-  /* Pastéis, sempre dessaturados e sempre em TEXTO ou marca pequena, nunca
-     em mancha de fundo: blob colorido em página escura vira produto de
-     tecnologia, que é justamente o que este site não pode parecer.
-     Nenhum deles chega perto do vermelho do CTA: o de areia tem R, G e B a
-     poucos pontos de distância, e os outros dois têm verde e azul no topo. */
-  --areia:        #E6D7C3;   /* metade itálica dos títulos, em toda a página */
-  --salvia:       #A9C7A1;   /* primeira frente da seção A edição */
-  --nevoa:        #A2BAD0;   /* terceira frente */
+  /* Um acento só, dessaturado, e sempre em TEXTO — nunca em mancha de
+     fundo, porque blob colorido em página escura vira produto de
+     tecnologia. Chegou a haver um verde e um azul, um por frente da seção
+     A edição; três acentos espalhavam a atenção sem organizar nada, e o
+     areia sozinho aquece a página inteira. Ele não encosta no vermelho do
+     CTA: R, G e B ficam a poucos pontos de distância um do outro. */
+  --areia:        #E6D7C3;   /* único acento de cor da página */
   /* Os TRÊS vermelhos da página, juntos de propósito — a relação entre eles é
      o que faz o CTA continuar significando "clique aqui".
 
@@ -433,18 +432,11 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
   padding: 6px 10px 6px 18px;
   margin: -6px -10px -6px 0;
 }
-/* Cada frente ganha um tom no número e nos traços da lista. Não é enfeite:
-   é o que faz as três se separarem de relance numa seção que, fora isso, é
-   toda cinza. Tudo em texto e marca de 1px, nunca em mancha de fundo. */
-.pilares > .pilar:nth-child(1) h3,
-.pilares > .pilar:nth-child(1)::before    { color: var(--salvia); }
-.pilares > .pilar:nth-child(1) li::before { background: var(--salvia); }
-.pilares > .pilar:nth-child(2) h3,
-.pilares > .pilar:nth-child(2)::before    { color: var(--areia); }
-.pilares > .pilar:nth-child(2) li::before { background: var(--areia); }
-.pilares > .pilar:nth-child(3) h3,
-.pilares > .pilar:nth-child(3)::before    { color: var(--nevoa); }
-.pilares > .pilar:nth-child(3) li::before { background: var(--nevoa); }
+/* Título e número das três frentes no mesmo areia dos itálicos: a seção
+   ganha temperatura sem virar semáforo de três cores. Os traços da lista
+   ficam no cinza fraco de propósito — em areia eles competiriam com o
+   texto que marcam. */
+.pilar h3, .pilar::before { color: var(--areia); }
 
 @media (min-width: 700px) {
   /* Título à esquerda, conteúdo à direita — sem deixar meia coluna vazia. */
