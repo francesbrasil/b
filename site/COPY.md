@@ -112,9 +112,9 @@ imagem — sem transcrição, quem usa leitor de tela não recebe prova nenhuma.
 
 **Título:** Como funciona.
 
-**1. Diagnóstico gratuito, em até 24 horas** — Você manda um Reels seu já publicado. Volta um
-vídeo curto comentando o perfil e um antes e depois editado com esse trecho. Sem custo e sem
-compromisso.
+**1. Diagnóstico gratuito, em até 24 horas** — A Inbre olha seu perfil e grava um vídeo
+apontando o que dá para melhorar, com um antes e depois feito a partir de um Reels que você já
+publicou. Você não precisa enviar arquivo nenhum. Sem custo e sem compromisso.
 
 **2. Você escolhe o volume** — Vendo o resultado, você diz quantos Reels quer por mês. A
 Inbre monta o orçamento em cima desse número. Preço entra só aqui.
@@ -137,13 +137,12 @@ a caso em cima desse número.
 
 **O que está incluído**
 
-- Edição dos Reels, com corte e ritmo
+- Gancho montado no corte de abertura
+- Corte e ritmo do Reel inteiro
 - Áudio tratado
 - Legenda conferida palavra por palavra
 - Capa padronizada
 - Cor e fonte constantes de um vídeo para o outro
-- Gancho montado no corte de abertura
-- Edição dos stories
 
 A lista tem só o que acontece dentro da edição. Roteiro, calendário de publicação e direção de
 gravação saíram: são trabalho de antes da gravação, e o serviço é editar o material que a
@@ -187,8 +186,9 @@ Nada contra. O diagnóstico gratuito serve para isso: você compara um antes e d
 vídeo seu com o que recebe hoje, e decide sem pressa.
 
 **Como funciona o diagnóstico gratuito?**
-Você manda um Reels já publicado. Em até 24 horas volta um vídeo curto comentando o perfil e um
-antes e depois editado com esse trecho. É gratuito e não gera compromisso.
+A Inbre olha seu perfil e grava um vídeo apontando o que dá para melhorar, com um antes e
+depois feito a partir de um Reels que você já publicou. Chega em até 24 horas. Você não precisa
+enviar arquivo nenhum, é gratuito e não gera compromisso.
 `[CONFIRMAR: a pessoa pode publicar o antes/depois que recebeu?]`
 
 **Há quanto tempo a Inbre existe?**
@@ -198,22 +198,16 @@ nicho só.
 
 ## Contato
 
-**Título:** Manda um vídeo seu. *Ele volta editado em 24 horas.*
+**Título:** Peça o diagnóstico. *Você não precisa enviar nada.*
 
-**Subtítulo:** O diagnóstico do seu perfil e um antes e depois feito com o seu vídeo. Sem
-custo, sem compromisso.
+**Subtítulo:** A Inbre olha seu perfil, grava um vídeo apontando o que dá para melhorar e edita
+um trecho de um Reels que você já publicou, antes e depois. Chega em até 24 horas, sem custo e
+sem compromisso.
+
+Quem grava o diagnóstico é a Inbre, a partir do perfil público. O cliente não envia arquivo
+nenhum, e não pedir arquivo é a parte mais forte da oferta.
 
 **CTA:** Abrir conversa no WhatsApp
-
-**Grade de contato** — quem chegou aqui veio checar se a Inbre existe; esta grade responde isso
-mais rápido que qualquer parágrafo.
-
-| | |
-|---|---|
-| WhatsApp | [NÚMERO VISÍVEL] |
-| Instagram | @[INSTAGRAM] |
-| E-mail | [EMAIL] |
-| CNPJ | [CNPJ] — opcional, mas é o item que mais pesa; se não houver, apague a linha |
 
 **Rodapé:** Inbre · Edição de Reels para nutrição e fitness
 

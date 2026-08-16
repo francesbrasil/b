@@ -137,8 +137,7 @@ section { padding-block: 56px; }
    Sem risco decorativo antes do texto e sem numeração: o rótulo nomeia a
    seção e para por aí. O tratamento tipográfico continua o mesmo (mono,
    caixa alta, entreletra aberta), que é o que o resto da página usa nos
-   rótulos pequenos, como os números dos pilares e as etiquetas do
-   contato. */
+   rótulos pequenos, como os números dos pilares. */
 .rotulo {
   display: block;
   font-family: var(--fonte-mono);
@@ -552,27 +551,6 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
 .final .sub { max-width: 32em; }
 .final .cta { margin-top: 28px; }
 
-/* Grade de contato. Para quem chegou aqui só para checar se a Inbre existe,
-   isto vale mais do que qualquer parágrafo da página. */
-.contato {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px 18px;
-  margin: 42px 0 0;
-  padding-top: 28px;
-  border-top: 1px solid var(--linha);
-}
-.contato dt {
-  font-family: var(--fonte-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cinza-fraco);
-}
-.contato dd { margin: 6px 0 0; font-size: 15.5px; color: var(--cinza-claro); }
-.contato a { text-decoration: none; }
-.contato a:hover { color: var(--branco); }
-
 /* --- rodapé --- */
 footer {
   background: var(--carvao);
@@ -981,8 +959,9 @@ footer a:hover { color: var(--cinza-claro); }
     <ol class="passos">
       <li>
         <b>Diagnóstico gratuito, em até 24 horas</b>
-        <p>Você manda um Reels seu já publicado. Volta um vídeo curto comentando o perfil e um
-          antes e depois editado com esse trecho. Sem custo e sem compromisso.</p>
+        <p>A Inbre olha seu perfil e grava um vídeo apontando o que dá para melhorar, com um
+          antes e depois feito a partir de um Reels que você já publicou. Você não precisa
+          enviar arquivo nenhum. Sem custo e sem compromisso.</p>
       </li>
       <li>
         <b>Você escolhe o volume</b>
@@ -1023,13 +1002,12 @@ footer a:hover { color: var(--cinza-claro); }
       <article class="card plano">
         <h3>O que está incluído</h3>
         <ul>
-          <li>Edição dos Reels, com corte e ritmo</li>
+          <li>Gancho montado no corte de abertura</li>
+          <li>Corte e ritmo do Reel inteiro</li>
           <li>Áudio tratado</li>
           <li>Legenda conferida palavra por palavra</li>
           <li>Capa padronizada</li>
           <li>Cor e fonte constantes de um vídeo para o outro</li>
-          <li>Gancho montado no corte de abertura</li>
-          <li>Edição dos stories</li>
         </ul>
       </article>
     </div>
@@ -1094,9 +1072,9 @@ footer a:hover { color: var(--cinza-claro); }
       <details>
         <summary>Como funciona o diagnóstico gratuito?</summary>
         <!-- TODO: confirmar se a pessoa pode publicar o antes/depois que recebe -->
-        <p>Você manda um Reels já publicado. Em até 24 horas volta um vídeo curto comentando o
-          perfil e um antes e depois editado com esse trecho. É gratuito e não gera
-          compromisso.</p>
+        <p>A Inbre olha seu perfil e grava um vídeo apontando o que dá para melhorar, com um
+          antes e depois feito a partir de um Reels que você já publicou. Chega em até 24 horas.
+          Você não precisa enviar arquivo nenhum, é gratuito e não gera compromisso.</p>
       </details>
       <details>
         <summary>Há quanto tempo a Inbre existe?</summary>
@@ -1112,10 +1090,14 @@ footer a:hover { color: var(--cinza-claro); }
 <section class="final" aria-labelledby="t-final">
   <div class="wrap">
     <p class="rotulo">Contato</p>
-    <h2 id="t-final">Manda um vídeo seu.<span class="destaque"> Ele volta editado em 24
-      horas.</span></h2>
-    <p class="sub">O diagnóstico do seu perfil e um antes e depois feito com o seu vídeo. Sem
-      custo, sem compromisso.</p>
+    <!-- O título mandava a pessoa enviar um vídeo, e ela não envia nada: quem grava o
+         diagnóstico é a Inbre, a partir do perfil público. Não pedir arquivo é a parte mais
+         forte da oferta, então virou a segunda linha do título. -->
+    <h2 id="t-final">Peça o diagnóstico.<span class="destaque"> Você não precisa enviar
+      nada.</span></h2>
+    <p class="sub">A Inbre olha seu perfil, grava um vídeo apontando o que dá para melhorar e
+      edita um trecho de um Reels que você já publicou, antes e depois. Chega em até 24 horas,
+      sem custo e sem compromisso.</p>
     <a class="cta cta--bloco"
        href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site%20da%20Inbre.%20Quero%20o%20diagn%C3%B3stico%20gratuito."
        target="_blank" rel="noopener">
@@ -1123,28 +1105,6 @@ footer a:hover { color: var(--cinza-claro); }
       Abrir conversa no WhatsApp
     </a>
 
-    <!-- TODO: preencher os dados reais. Quem chegou aqui veio checar se a Inbre existe —
-         esta grade responde isso mais rápido que qualquer parágrafo. O CNPJ é opcional,
-         mas é o item que mais pesa nessa checagem; se não houver, apague a linha inteira. -->
-    <dl class="contato">
-      <div>
-        <dt>WhatsApp</dt>
-        <dd><a href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site%20da%20Inbre.%20Quero%20o%20diagn%C3%B3stico%20gratuito."
-               target="_blank" rel="noopener">[NÚMERO VISÍVEL]</a></dd>
-      </div>
-      <div>
-        <dt>Instagram</dt>
-        <dd><a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">@[INSTAGRAM]</a></dd>
-      </div>
-      <div>
-        <dt>E-mail</dt>
-        <dd><a href="mailto:[EMAIL]">[EMAIL]</a></dd>
-      </div>
-      <div>
-        <dt>CNPJ</dt>
-        <dd>[CNPJ]</dd>
-      </div>
-    </dl>
   </div>
 </section>
 
@@ -1449,8 +1409,7 @@ footer a:hover { color: var(--cinza-claro); }
       "section .rotulo", "section h2", "section .sub",
       ".media", ".media-som", ".media-legenda",
       ".pilar", ".fecho", ".passos li", ".card",
-      ".faq details", ".sobre p",
-      ".contato > div"
+      ".faq details", ".sobre p"
     ].join(",");
 
     var alvos = [];
