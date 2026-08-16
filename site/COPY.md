@@ -122,8 +122,8 @@ Inbre monta o orçamento em cima desse número. Preço entra só aqui.
 **3. Rotina mensal** — Você grava e envia os brutos. A Inbre devolve os vídeos editados, com
 legenda, capa e identidade visual constantes de um vídeo para o outro.
 
-**4. Ajuste a cada mês** — O que funcionou volta, o que não funcionou sai. Roteiro, gancho e
-direção de gravação vão se ajustando ao que o perfil pede.
+**4. Ajuste a cada mês** — O que funcionou volta, o que não funcionou sai. Gancho, ritmo e
+acabamento vão se ajustando ao que o perfil pede.
 
 ## O plano mensal
 
@@ -142,13 +142,12 @@ a caso em cima desse número.
 - Legenda conferida palavra por palavra
 - Capa padronizada
 - Cor e fonte constantes de um vídeo para o outro
-- Roteiro e gancho
-- Calendário de publicação
-- Direção de gravação
-- Stories
+- Gancho montado no corte de abertura
+- Edição dos stories
 
-`[CONFERIR: tudo acima entra em qualquer volume? Se roteiro, direção de gravação ou stories só
-valerem a partir de certo tamanho de contrato, a lista precisa ser separada em dois grupos.]`
+A lista tem só o que acontece dentro da edição. Roteiro, calendário de publicação e direção de
+gravação saíram: são trabalho de antes da gravação, e o serviço é editar o material que a
+pessoa já gravou. O gancho fica, porque é decidido no corte de abertura.
 
 **Bloco de WhatsApp, logo abaixo:** O preço sai do volume que você escolher. Diga quantos Reels
 por mês e a Inbre manda o orçamento junto com o diagnóstico gratuito do seu perfil.
@@ -159,7 +158,7 @@ por mês e a Inbre manda o orçamento junto com o diagnóstico gratuito do seu p
 
 **Título:** O que veio antes *da marca.*
 
-A Inbre nasceu em [MÊS/ANO]. O trabalho que ela organiza é mais velho que ela: são 4
+A Inbre nasceu em junho de 2026. O trabalho que ela organiza é mais velho que ela: são 4
 anos editando vídeo para clientes de [SEGMENTOS], parte deles dentro de nutrição e fitness,
 parte fora.
 
@@ -187,22 +186,13 @@ essas horas rendem mais: na edição, ou no atendimento, na gravação e no estu
 Nada contra. O diagnóstico gratuito serve para isso: você compara um antes e depois de um
 vídeo seu com o que recebe hoje, e decide sem pressa.
 
-**Preciso gravar mais do que já gravo?**
-Não. O ponto de partida é o volume que você já grava. Se em algum momento fizer sentido gravar
-mais, isso aparece na conversa mensal, nunca como exigência de entrada.
-
-**Dá para fazer sem eu aparecer?**
-Dá: com narração, imagens de apoio e texto em tela. Vale saber que, nesse nicho, o rosto
-costuma ser o que aproxima. Se a ideia for chegar lá aos poucos, o diagnóstico já mostra por
-onde começar.
-
 **Como funciona o diagnóstico gratuito?**
 Você manda um Reels já publicado. Em até 24 horas volta um vídeo curto comentando o perfil e um
 antes e depois editado com esse trecho. É gratuito e não gera compromisso.
 `[CONFIRMAR: a pessoa pode publicar o antes/depois que recebeu?]`
 
 **Há quanto tempo a Inbre existe?**
-A marca existe desde [MÊS/ANO]. O trabalho, há 4 anos. Os depoimentos desta página são
+A marca existe desde junho de 2026. O trabalho, desde 2022. Os depoimentos desta página são
 de clientes desse período, alguns anteriores à marca. A Inbre é o recorte desse trabalho em um
 nicho só.
 

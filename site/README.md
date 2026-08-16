@@ -39,7 +39,6 @@ grep -n "TODO:" site/index.html
 Trava a publicação:
 
 - `55DDDNUMERO` → número de WhatsApp comercial (55 + DDD + número, só dígitos)
-- `[MÊS/ANO]` → quando a Inbre nasceu
 - `--vermelho` no CSS → hex amostrado da logo (leia a seção abaixo antes de trocar)
 - `assets/antes-depois.mp4` e `assets/antes-depois.jpg` → o vídeo comparativo e sua capa
 - `https://inbre.com.br` nas metatags → domínio real
