@@ -11,9 +11,10 @@ Este arquivo é a fonte do texto. Editou aqui, reflita no `index.html` (e vice-v
 - O argumento nunca é "seu vídeo é ruim". É "seu conteúdo é bom e a entrega técnica está
   abaixo dele".
 
-**Estrutura** — sete seções depois do hero, cada uma com um rótulo formal em caixa alta
-(`A EDIÇÃO`), sem numeração e sem risco decorativo. Títulos em dois tons: a primeira
-frase afirma, a segunda vira em itálico.
+**Estrutura** — sete seções depois do hero, cada uma com um rótulo formal (`A edição`), sem
+numeração e sem risco decorativo. O rótulo é antetítulo de revista: serif itálico, caixa
+normal. Nada de caixa alta com entreletra aberta, que é o antetítulo padrão de landing page.
+Títulos em dois tons: a primeira frase afirma, a segunda vira em itálico.
 
 ---
 
