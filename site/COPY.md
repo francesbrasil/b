@@ -116,32 +116,44 @@ imagem — sem transcrição, quem usa leitor de tela não recebe prova nenhuma.
 vídeo curto comentando o perfil e um antes e depois editado com esse trecho. Sem custo e sem
 compromisso.
 
-**2. Conversa sobre volume** — Vendo o resultado, vocês definem quantos Reels por mês fazem
-sentido e qual faixa cobre isso. Preço entra só aqui.
+**2. Você escolhe o volume** — Vendo o resultado, você diz quantos Reels quer por mês. A
+Inbre monta o orçamento em cima desse número. Preço entra só aqui.
 
 **3. Rotina mensal** — Você grava e envia os brutos. A Inbre devolve os vídeos editados, com
 legenda, capa e identidade visual constantes de um vídeo para o outro.
 
 **4. Ajuste a cada mês** — O que funcionou volta, o que não funcionou sai. Roteiro, gancho e
-direção de gravação entram conforme a faixa.
+direção de gravação vão se ajustando ao que o perfil pede.
 
-## Planos mensais
+## O plano mensal
 
-**Título:** Três faixas, *por volume mensal.*
+**Título:** Um plano só, *montado no seu volume.*
 
-**Subtítulo:** A diferença entre elas é quantos Reels por mês e quanto da produção fica com a
-Inbre. O preço não fica na página: ele aparece depois do diagnóstico, quando você já viu o
-trabalho feito com um vídeo seu.
+**Subtítulo:** Você diz quantos Reels quer por mês. A Inbre monta o orçamento em cima desse
+número e manda antes de qualquer compromisso.
 
-- **Essencial** — menor volume. Edição, legenda e capa padronizada. `[ENTREGAS EXATAS]`
-- **Crescimento** — volume médio. Tudo do Essencial, mais roteiro e gancho, e calendário de
-  publicação. `[ENTREGAS EXATAS]`
-- **Full** — volume alto. Tudo do Crescimento, mais roteiro completo, direção de gravação e
-  stories. `[ENTREGAS EXATAS]`
+As três faixas saíram da página: quem define o volume é o cliente, e o orçamento é feito caso
+a caso em cima desse número.
 
-**CTA:** Descobrir qual faixa cobre seu volume
+**O que está incluído**
 
-**Nota:** O diagnóstico vem antes da proposta, em qualquer faixa.
+- Edição dos Reels, com corte e ritmo
+- Áudio tratado
+- Legenda conferida palavra por palavra
+- Capa padronizada
+- Cor e fonte constantes de um vídeo para o outro
+- Roteiro e gancho
+- Calendário de publicação
+- Direção de gravação
+- Stories
+
+`[CONFERIR: tudo acima entra em qualquer volume? Se roteiro, direção de gravação ou stories só
+valerem a partir de certo tamanho de contrato, a lista precisa ser separada em dois grupos.]`
+
+**Bloco de WhatsApp, logo abaixo:** O preço sai do volume que você escolher. Diga quantos Reels
+por mês e a Inbre manda o orçamento junto com o diagnóstico gratuito do seu perfil.
+
+**CTA:** Pedir orçamento no WhatsApp
 
 ## Sobre o estúdio
 
@@ -163,8 +175,9 @@ A Inbre é essa escolha: um nicho só, feito por quem já editou para vários.
 **Título:** O que costumam perguntar.
 
 **Quanto custa?**
-Depende da faixa de volume. O preço aparece na conversa depois do diagnóstico, e não antes,
-porque assim você decide vendo um antes e depois feito com um vídeo seu, não uma tabela.
+Depende de quantos Reels você quer por mês. O preço aparece na conversa depois do
+diagnóstico, e não antes, porque assim você decide vendo um antes e depois feito com um vídeo
+seu, não uma tabela.
 
 **E se eu mesmo edito?**
 Então você já sabe quanto tempo isso toma. A conta não é sobre saber editar. É sobre onde
@@ -233,6 +246,6 @@ Cada posição manda uma mensagem diferente, para você saber de onde a pessoa s
 | Posição | Mensagem |
 |---|---|
 | Hero | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito do meu perfil. |
-| Autodiagnóstico | Oi, vim pelo site. Me reconheci em alguns pontos da lista e quero o diagnóstico gratuito. |
-| Planos | Oi, vim pelo site. Quero entender qual faixa cobre meu volume de Reels. |
+| A edição | Oi, vim pelo site. Vi a parte da edição e quero o diagnóstico gratuito. |
+| Plano mensal | Oi, vim pelo site da Inbre. Quero um orçamento de edição mensal. |
 | Contato e barra fixa | Oi, vim pelo site da Inbre. Quero o diagnóstico gratuito. |

@@ -485,7 +485,6 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
 
 /* --- planos --- */
 .plano h3 { font-size: 20px; }
-.plano .volume { font-size: 14px; color: var(--cinza-fraco); margin-top: 4px; }
 .plano ul {
   list-style: none;
   margin: 16px 0 0;
@@ -505,20 +504,6 @@ section[id], #s-depoimentos { scroll-margin-top: 24px; }
   left: 0; top: 11px;
   width: 8px; height: 1px;
   background: var(--cinza-fraco);
-}
-.planos-cta { margin-top: 26px; }
-.planos-nota { margin-top: 16px; font-size: 14px; color: var(--cinza-fraco); }
-
-/* marcador de conteúdo pendente — visível de propósito, para não subir no ar sem querer */
-.todo {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 4px 8px;
-  border: 1px dashed var(--linha);
-  border-radius: 6px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12px;
-  color: var(--cinza-fraco);
 }
 
 /* --- sobre --- */
@@ -824,7 +809,7 @@ footer a:hover { color: var(--cinza-claro); }
       <ul>
         <li><a href="#s-demonstracao">Demonstração</a></li>
         <li><a href="#s-depoimentos">Depoimentos</a></li>
-        <li><a href="#s-planos">Planos</a></li>
+        <li><a href="#s-planos">Plano</a></li>
         <li><a href="#s-sobre">Sobre</a></li>
         <li><a href="#s-duvidas">Dúvidas</a></li>
       </ul>
@@ -952,7 +937,7 @@ footer a:hover { color: var(--cinza-claro); }
       <p>O diagnóstico gratuito mostra quais dessas três frentes pesam mais no seu perfil
         hoje. E mostra também, com um vídeo seu, como fica depois.</p>
       <a class="cta cta--bloco"
-         href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site.%20Me%20reconheci%20em%20alguns%20pontos%20da%20lista%20e%20quero%20o%20diagn%C3%B3stico%20gratuito."
+         href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site.%20Vi%20a%20parte%20da%20edi%C3%A7%C3%A3o%20e%20quero%20o%20diagn%C3%B3stico%20gratuito."
          target="_blank" rel="noopener">Quero ver isso no meu perfil</a>
     </div>
   </div>
@@ -1000,9 +985,9 @@ footer a:hover { color: var(--cinza-claro); }
           antes e depois editado com esse trecho. Sem custo e sem compromisso.</p>
       </li>
       <li>
-        <b>Conversa sobre volume</b>
-        <p>Vendo o resultado, vocês definem quantos Reels por mês fazem sentido e qual faixa
-          cobre isso. Preço entra só aqui.</p>
+        <b>Você escolhe o volume</b>
+        <p>Vendo o resultado, você diz quantos Reels quer por mês. A Inbre monta o orçamento em
+          cima desse número. Preço entra só aqui.</p>
       </li>
       <li>
         <b>Rotina mensal</b>
@@ -1012,7 +997,7 @@ footer a:hover { color: var(--cinza-claro); }
       <li>
         <b>Ajuste a cada mês</b>
         <p>O que funcionou volta, o que não funcionou sai. Roteiro, gancho e direção de gravação
-          entram conforme a faixa.</p>
+          vão se ajustando ao que o perfil pede.</p>
       </li>
     </ol>
   </div>
@@ -1021,53 +1006,41 @@ footer a:hover { color: var(--cinza-claro); }
 <!-- ============ 7. PLANOS ============ -->
 <section id="s-planos" tabindex="-1" aria-labelledby="t-planos">
   <div class="wrap">
-    <p class="rotulo">Planos mensais</p>
-    <h2 id="t-planos">Três faixas,<span class="destaque"> por volume mensal.</span></h2>
-    <p class="sub">A diferença entre elas é quantos Reels por mês e quanto da produção fica com
-      a Inbre. O preço não fica na página: ele aparece depois do diagnóstico, quando você já viu
-      o trabalho feito com um vídeo seu.</p>
+    <p class="rotulo">O plano mensal</p>
+    <h2 id="t-planos">Um plano só,<span class="destaque"> montado no seu volume.</span></h2>
+    <p class="sub">Você diz quantos Reels quer por mês. A Inbre monta o orçamento em cima desse
+      número e manda antes de qualquer compromisso.</p>
 
-    <!-- TODO: detalhar as entregas exatas de cada faixa e remover os marcadores .todo -->
+    <!-- As três faixas saíram da página. Quem define o volume é o cliente, e o orçamento é
+         feito caso a caso em cima desse número, então mostrar tabela de faixa só criava uma
+         escolha que não é dele.
+         TODO: conferir se TUDO da lista abaixo entra em qualquer volume. Se roteiro, direção
+         de gravação ou stories só valerem a partir de certo tamanho de contrato, é preciso
+         separar a lista em dois grupos, senão a página promete mais do que a entrega. -->
     <div class="grade">
       <article class="card plano">
-        <h3>Essencial</h3>
-        <p class="volume">Menor volume de Reels por mês</p>
+        <h3>O que está incluído</h3>
         <ul>
-          <li>Edição dos Reels</li>
-          <li>Legenda</li>
+          <li>Edição dos Reels, com corte e ritmo</li>
+          <li>Áudio tratado</li>
+          <li>Legenda conferida palavra por palavra</li>
           <li>Capa padronizada</li>
-        </ul>
-        <span class="todo">[ENTREGAS EXATAS]</span>
-      </article>
-
-      <article class="card plano">
-        <h3>Crescimento</h3>
-        <p class="volume">Volume médio de Reels por mês</p>
-        <ul>
-          <li>Tudo do Essencial</li>
+          <li>Cor e fonte constantes de um vídeo para o outro</li>
           <li>Roteiro e gancho</li>
           <li>Calendário de publicação</li>
-        </ul>
-        <span class="todo">[ENTREGAS EXATAS]</span>
-      </article>
-
-      <article class="card plano">
-        <h3>Full</h3>
-        <p class="volume">Volume alto de Reels por mês</p>
-        <ul>
-          <li>Tudo do Crescimento</li>
-          <li>Roteiro completo</li>
           <li>Direção de gravação</li>
           <li>Stories</li>
         </ul>
-        <span class="todo">[ENTREGAS EXATAS]</span>
       </article>
     </div>
 
-    <a class="cta cta--bloco planos-cta"
-       href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site.%20Quero%20entender%20qual%20faixa%20cobre%20meu%20volume%20de%20Reels."
-       target="_blank" rel="noopener">Descobrir qual faixa cobre seu volume</a>
-    <p class="planos-nota">O diagnóstico vem antes da proposta, em qualquer faixa.</p>
+    <div class="fecho">
+      <p>O preço sai do volume que você escolher. Diga quantos Reels por mês e a Inbre manda o
+        orçamento junto com o diagnóstico gratuito do seu perfil.</p>
+      <a class="cta cta--bloco"
+         href="https://wa.me/55DDDNUMERO?text=Oi%2C%20vim%20pelo%20site%20da%20Inbre.%20Quero%20um%20or%C3%A7amento%20de%20edi%C3%A7%C3%A3o%20mensal."
+         target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+    </div>
   </div>
 </section>
 
@@ -1104,9 +1077,9 @@ footer a:hover { color: var(--cinza-claro); }
     <div class="faq">
       <details>
         <summary>Quanto custa?</summary>
-        <p>Depende da faixa de volume. O preço aparece na conversa depois do diagnóstico, e não
-          antes, porque assim você decide vendo um antes e depois feito com um vídeo seu, não
-          uma tabela.</p>
+        <p>Depende de quantos Reels você quer por mês. O preço aparece na conversa depois do
+          diagnóstico, e não antes, porque assim você decide vendo um antes e depois feito com
+          um vídeo seu, não uma tabela.</p>
       </details>
       <details>
         <summary>E se eu mesmo edito?</summary>
@@ -1489,7 +1462,7 @@ footer a:hover { color: var(--cinza-claro); }
       ".media", ".media-som", ".media-legenda",
       ".pilar", ".fecho", ".passos li", ".card",
       ".faq details", ".sobre p",
-      ".planos-cta", ".planos-nota", ".contato > div"
+      ".contato > div"
     ].join(",");
 
     var alvos = [];
