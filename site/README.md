@@ -9,6 +9,7 @@ descrevem aquele projeto, não este.
 ```
 index.html      a página inteira: HTML + CSS + JS inline, sem framework e sem build
 COPY.md         o texto como fonte de edição — mudou aqui, reflita no index.html
+CONTEXTO.md     o porquê de cada decisão, para retomar o projeto em outra conversa
 _headers        regras de cache do Cloudflare Pages
 assets/         vídeos, capas, logo, favicon, imagem de preview
 assets/fontes/  Instrument Serif (só o subconjunto latino) + a licença OFL
