@@ -231,6 +231,12 @@ section { padding-block: 56px; }
 }
 .marca {
   flex: none;
+  /* A palavra tem 24px de altura, e é um link de voltar ao topo. Cresce até
+     44px de área de toque sem sair do lugar: o texto continua centrado e a
+     linha do topo não engorda, porque os atalhos ao lado já têm essa altura. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.18em;
