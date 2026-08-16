@@ -1,0 +1,31 @@
+# Regras de cache e cabeçalhos do Cloudflare Pages.
+#
+# O princípio aqui é um só: NADA nesta pasta tem nome versionado. Não existe
+# build, então não existe hash no nome do arquivo, e cache longo em nome fixo
+# significa publicar uma correção que ninguém vê. Cada regra abaixo é o maior
+# cache que o arquivo aguenta sem esse risco.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+
+# A página é o arquivo que mais muda: número de WhatsApp, depoimento liberado,
+# uma frase do COPY.md. Revalida sempre — é um documento pequeno, e o custo de
+# perguntar "mudou?" é menor que o de alguém ver a versão de ontem.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# As fontes são a exceção: o arquivo woff2 do subconjunto latino da Instrument
+# Serif não muda. Se um dia mudar, muda de nome junto. Um ano, imutável.
+/assets/fontes/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Vídeo, capas, logo e og.jpg: nome fixo, conteúdo que pode ser trocado. Um dia
+# de cache segura a visita repetida sem prender uma troca por uma semana; para
+# publicar na hora, é purge no painel.
+/assets/*
+  Cache-Control: public, max-age=86400
