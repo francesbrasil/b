@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Archivo', system-ui, sans-serif;
+  overflow-x: clip;
+  background-color: hsl(var(--background));
+  background-image: linear-gradient(135deg, hsl(0 0% 7%) 0%, hsl(350 32% 12%) 48%, hsl(0 0% 5%) 100%);
+  background-attachment: fixed;
+  color: hsl(var(--foreground));
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 356 78% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 0 0% 68%;
+    --accent: 356 78% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 23%;
+    --input: 0 0% 23%;
+    --ring: 356 78% 50%;
+    --radius: 0.25rem;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Archivo Black', 'Archivo', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.075;
+    z-index: 50;
+    background-image: radial-gradient(hsl(0 0% 100% / 0.42) 0.55px, transparent 0.75px), radial-gradient(hsl(0 0% 0% / 0.35) 0.6px, transparent 0.8px);
+    background-position: 0 0, 1px 1px;
+    background-size: 4px 4px, 7px 7px;
+    mix-blend-mode: soft-light;
+  }
+}
+
+@keyframes inbre-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: inbre-marquee 26s linear infinite;
+}
+
+/* === Hover animations for clickable elements === */
+
+/* Primary button: lift + glow + brighten */
+.btn-primary-hover {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.25s ease,
+              box-shadow 0.3s ease;
+  box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+}
+.btn-primary-hover:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.12);
+  box-shadow: 0 12px 30px -8px hsl(var(--primary) / 0.55),
+              0 0 22px 2px hsl(var(--primary) / 0.35);
+}
+.btn-primary-hover:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Outline / secondary button: border glow + slight lift */
+.btn-outline-hover {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s ease,
+              color 0.25s ease,
+              box-shadow 0.3s ease,
+              background-color 0.25s ease;
+}
+.btn-outline-hover:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+  box-shadow: 0 12px 28px -10px hsl(var(--primary) / 0.45),
+              0 0 16px 1px hsl(var(--primary) / 0.25);
+}
+.btn-outline-hover:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Ghost / text link: underline sweep + color shift */
+.link-hover {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: hsl(var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-hover:hover {
+  color: hsl(var(--foreground));
+}
+.link-hover:hover::after {
+  transform: scaleX(1);
+}
+
+/* Plan card: lift + border glow + shadow */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease,
+              box-shadow 0.35s ease,
+              background-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: hsl(var(--primary));
+  box-shadow: 0 24px 50px -18px hsl(var(--primary) / 0.5),
+              0 0 26px 2px hsl(var(--primary) / 0.18);
+}
+
+/* WhatsApp ghost link: icon nudge + color */
+.wa-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.wa-link:hover {
+  color: hsl(var(--foreground));
+}
+.wa-link:hover svg {
+  transform: translateX(2px) scale(1.1);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .btn-primary-hover:hover,
+  .btn-outline-hover:hover,
+  .card-hover:hover,
+  .wa-link:hover svg {
+    transform: none;
+    box-shadow: none;
+  }
+}

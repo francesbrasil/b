@@ -1,148 +1,135 @@
-# site/ — página da Inbre
+# site/ — Inbre
 
-Esta pasta é o site institucional da Inbre (estúdio de edição de Reels). **Não tem relação com
-o solver de estruturas** que ocupa o resto do repositório — `AGENTS.md` e `PROGRESS.md`
-descrevem aquele projeto, não este.
+Site da Inbre, estúdio de edição de Reels para nutricionistas e personal trainers.
+Exportado do Hostinger Horizons e adaptado para rodar fora dele.
 
-## Arquivos
+**Não tem relação com o solver de estruturas** que ocupa o resto do repositório — o
+`AGENTS.md` e o `PROGRESS.md` da raiz descrevem aquele projeto, não este.
+
+> Substituiu a versão anterior desta pasta, que era um único `index.html` estático
+> publicado no Cloudflare Pages. Aquela página não tinha preço, formulário nem
+> pagamento; esta tem os três, e por isso precisa de servidor. O histórico dela está
+> no commit `f35b4e1`.
+
+## Três aplicações
 
 ```
-index.html      a página inteira: HTML + CSS + JS inline, sem framework e sem build
-COPY.md         o texto como fonte de edição — mudou aqui, reflita no index.html
-contraste.py    refaz a conta de contraste lendo as cores do próprio index.html
-_headers        regras de cache do Cloudflare Pages
-CONTEXTO.md     (ainda não existe) o porquê de cada decisão, para retomar o projeto
-                em outra conversa
-assets/         (ainda não existe) vídeos, capas, logo, favicon, imagem de preview
-assets/fontes/  (ainda não existe) Instrument Serif (só o subconjunto latino) + a
-                licença OFL
+apps/web          React 18 + Vite 7 + Tailwind + shadcn/ui. A página em si.      :3000
+apps/api          Express 5. Uma rota: cria a preferência de checkout do
+                  Mercado Pago. O token nunca chega ao navegador.                :3001
+apps/pocketbase   PocketBase 0.39.8. Guarda os pedidos de diagnóstico do
+                  formulário, na coleção `diagnosticos`.                         :8090
 ```
 
-O que está marcado como "ainda não existe" é o que falta chegar na pasta. Sem
-`assets/` a página abre e se lê inteira — a fonte cai para Georgia, o favicon e a capa
-do vídeo não aparecem — mas não é isso que vai ao ar.
+O conteúdo da página vive quase todo em `apps/web/src/pages/HomePage.jsx` — textos,
+os três planos e os preços estão em constantes no topo do arquivo.
 
-## Fonte
-
-Os títulos usam **Instrument Serif**, hospedada aqui mesmo em `assets/fontes/`: duas
-requisições, 41 KB somando romana e itálica, só o subconjunto latino (que já cobre todo o
-português). `font-display: swap` garante que o texto apareça na hora, na fonte do sistema, e
-troque quando a outra chegar — o título nunca fica invisível esperando. Georgia continua como
-reserva, então se o arquivo não chegar a página não muda de forma, só de fonte.
-
-Licença SIL Open Font 1.1, copiada em `assets/fontes/OFL.txt`. Se trocar de fonte, troque a
-licença junto.
-
-O corpo do texto segue na pilha do sistema, sem download. Trocar também o corpo dobraria o
-peso para ganhar bem menos: quem lê num celular na rua repara no título, não no parágrafo.
-
-## Rodar localmente
+## Rodar
 
 ```bash
-python3 -m http.server 8000 --directory site
-# abrir http://localhost:8000
+cd site
+cp apps/api/.env.example apps/api/.env     # e preencha o token
+npm install
+npm run dev                                # sobe as três de uma vez
 ```
 
-## Publicar (Cloudflare Pages)
+Antes do primeiro `npm run dev` faltam duas coisas que **não estão no repositório**:
 
-Conecte o repositório e configure:
+**1. O binário do PocketBase** (31 MB, ignorado pelo git). Baixe a versão `0.39.8`
+para o seu sistema em <https://github.com/pocketbase/pocketbase/releases> e ponha o
+executável em `apps/pocketbase/pocketbase`, com permissão de execução.
 
-- **Build command:** vazio
-- **Build output directory:** `site`
-- **Framework preset:** None
-
-## Antes de publicar — o que ainda falta preencher
-
-Tudo que falta está marcado com `TODO:` no `index.html`. Para listar:
+**2. O superusuário do PocketBase.** No primeiro boot uma migração cria a conta de
+administrador e falha se estas duas variáveis não estiverem no ambiente — o erro que
+aparece é `email: cannot be blank`, que não diz o que fazer:
 
 ```bash
-grep -n "TODO:" site/index.html
+export PB_SUPERUSER_EMAIL="voce@exemplo.com"
+export PB_SUPERUSER_PASSWORD="uma-senha-longa"
 ```
 
-Trava a publicação:
+Painel do PocketBase: <http://127.0.0.1:8090/_/> — é lá que os pedidos de diagnóstico
+aparecem.
 
-- `55DDDNUMERO` → número de WhatsApp comercial (55 + DDD + número, só dígitos)
-- `--vermelho` no CSS → hex amostrado da logo (leia a seção abaixo antes de trocar)
-- `assets/antes-depois.mp4` e `assets/antes-depois.jpg` → o vídeo comparativo e sua capa
-- `https://inbre.com.br` nas metatags → domínio real
-- `assets/og.jpg` e `assets/favicon.svg` → o cartão de preview e o ícone, exportados da logo
+## O proxy `/hcgi`
 
-Trava seções específicas, não o site inteiro:
+O frontend chama `/hcgi/api` (a API) e `/hcgi/platform` (o PocketBase). Esses caminhos
+não são inventados aqui: na hospedagem do Horizons existe um proxy de borda que os
+mapeia. **Fora do Horizons eles não existem**, e sem alguém fazendo esse papel o
+formulário e o botão "Contratar plano" respondem 404 — a página mostra só "tente
+novamente em alguns instantes", que não ajuda ninguém a descobrir o motivo.
 
-- entregas exatas de cada plano
-- prints de depoimentos, com primeiro nome, @ e segmento
-- segmentos anteriores à Inbre, na seção Sobre
-- a grade de contato do fim: `[NÚMERO VISÍVEL]`, `@[INSTAGRAM]`, `[EMAIL]` e `[CNPJ]`
-  (o CNPJ é opcional, mas é o item que mais pesa em quem veio checar se a Inbre é real;
-  se não houver, apague a linha inteira em vez de deixar vazia). O markup está pronto,
-  em comentário, no fim da seção de contato do `index.html` — é só descomentar e
-  preencher.
+Em desenvolvimento, quem resolve é o `server.proxy` do `apps/web/vite.config.js`, que
+foi acrescentado aqui. **Em produção você precisa reproduzir o mesmo mapeamento** no
+servidor da frente:
 
-## Ao trocar o vermelho pelo da logo
+```
+/hcgi/api/*        →  http://127.0.0.1:3001/*     (remover o prefixo /hcgi/api)
+/hcgi/platform/*   →  http://127.0.0.1:8090/*     (remover o prefixo /hcgi/platform)
+```
 
-Existem quatro vermelhos no arquivo, declarados juntos no `:root`. A relação entre eles é o
-que faz o botão continuar significando "clique aqui":
+Sem isso o site sobe, aparece bonito e não recebe um único lead.
 
-| token | onde vive | como é |
-|---|---|---|
-| `--vermelho` | só o botão de WhatsApp | nítido, saturado, chapado |
-| `--vermelho-alto` | o mesmo botão, sob o ponteiro | o `--vermelho` **escurecido** |
-| `--brasa-rgb` | atmosfera do fundo | alfa baixo, difuso, dessaturado |
-| `--vinho-rgb` | queda da brasa na beirada | mais escuro ainda |
+## Pagamentos — leia antes de cobrar de verdade
 
-O hover escurece em vez de clarear, e isso não é gosto: o texto do botão é branco, então
-clarear o fundo derruba o contraste justamente enquanto o ponteiro está em cima dele.
-Derive `--vermelho-alto` do `--vermelho` escurecendo, nunca clareando.
+O token em `apps/api/.env` hoje começa com `TEST-`. Um token de teste só abre o
+checkout de sandbox: **nenhum pagamento real é cobrado**.
 
-Depois de colar o hex da logo em `--vermelho`, faça este teste: abra a página no celular,
-role até o fim e olhe o botão e o fundo ao mesmo tempo. **Se der para dizer que são a mesma
-cor, está errado.** O caso perigoso é a logo ter um vermelho escuro ou acinzentado — aí
-escureça `--brasa-rgb` e `--vinho-rgb` na mesma medida, senão o botão para de saltar.
+Trocar o token não basta. Em `apps/api/src/routes/mercadopago-checkout.js` a URL de
+checkout é escolhida assim:
 
-O fundo nunca deve virar borda, texto, ícone ou divisória. Vermelho fora de `.cta` é bug.
+```js
+const checkoutUrl = data.sandbox_init_point || data.init_point;
+```
 
-Um vermelho de logo que for escuro ou acinzentado também pode derrubar o contraste do
-texto branco dentro do botão. Por isso o `contraste.py` confere o par: rode-o depois de
-colar o hex e antes de publicar.
+O Mercado Pago devolve os **dois** campos, inclusive com credenciais de produção. Como
+`sandbox_init_point` vem primeiro, com um token de produção o comprador continuaria
+sendo mandado para o sandbox, e a venda não acontece — sem erro nenhum na tela. Ao ir
+para produção, inverta a ordem ou escolha pelo tipo do token.
 
-## Contraste
+Os preços vivem em dois lugares e precisam bater: nos cards em `HomePage.jsx` (o que a
+pessoa lê) e no catálogo `PLANS` do `mercadopago-checkout.js` (o que é cobrado). O
+frontend manda só o id do plano, nunca o valor, então ninguém consegue adulterar o
+preço pelo navegador — mas se os dois arquivos divergirem, a página mostra um valor e a
+cobrança sai outro.
+
+## Produção
 
 ```bash
-python3 site/contraste.py
+npm run build     # gera site/dist/apps/web
+npm start         # sobe a API e o PocketBase
 ```
 
-O script lê as cores do próprio `index.html`, refaz a conta e sai com erro se alguma
-combinação cair abaixo de 4,5:1. É ele que responde "ainda dá para publicar?" depois de
-qualquer mexida em cor.
+Sirva `dist/apps/web` como estático, com o proxy `/hcgi` da seção acima na frente.
+É um SPA de rota única: aponte qualquer 404 de volta para o `index.html`.
 
-Pior caso hoje: **4,60:1**, acima do mínimo de 4,5 do WCAG AA. É o `--cinza-fraco` no
-pico da aura, com as **duas** camadas do fundo somadas — a quente e a neutra que fica por
-cima dela. Uma versão anterior desta conta só considerava a camada quente e por isso
-publicava um número folgado demais (4,95:1); a folga real é de 2%, não de 10%.
+**Defina `NODE_ENV=production`.** Nem o script `start` nem o `.env.example` fazem isso
+por você, e sem essa variável o middleware de erro da API devolve o stack trace e o
+caminho absoluto dos arquivos no corpo da resposta HTTP.
 
-Quem segura o número é o `--cinza-fraco`, que foi clareado de `#7A7A80` para `#8A8A90`
-justamente por causa da atmosfera — o valor antigo dava 4,64:1 já sobre preto puro, sem
-folga nenhuma.
+## O que fica de fora do repositório
 
-Se você escurecer o texto secundário ou aumentar a intensidade da brasa, rode o script
-antes de publicar. Com 2% de folga, quase nada aí é seguro no olho.
+O `.gitignore` cobre, e cada um tem um motivo:
 
-## Como adicionar depoimentos
+- `apps/api/.env` — tem o token do Mercado Pago
+- `apps/pocketbase/pocketbase` — binário de 31 MB, baixado por versão
+- `apps/pocketbase/pb_data/` — o banco, com os leads do formulário e o superusuário
+- `node_modules/`, `dist/`
 
-O `index.html` traz, dentro de cada seção, um bloco em comentário com o markup pronto de um
-card preenchido. Copie o comentário, cole no lugar de um espaço vazio e troque os valores.
+O `pb_data` que veio no zip do Horizons **não está aqui e não está no git**. Se ele tem
+leads reais, guarde uma cópia antes que o zip suma: é a única.
 
-## Vídeos
+## Pendências
 
-Formato: MP4 (H.264 + AAC), vertical 1080×1920. Alvo abaixo de 4 MB no antes/depois.
-
-```bash
-ffmpeg -i entrada.mov -vf "scale=1080:1920" -c:v libx264 -crf 26 -preset slow \
-       -c:a aac -b:a 96k -movflags +faststart site/assets/antes-depois.mp4
-
-# capa a partir do primeiro segundo
-ffmpeg -i site/assets/antes-depois.mp4 -ss 1 -frames:v 1 -q:v 4 site/assets/antes-depois.jpg
-```
-
-Nenhum byte de vídeo é baixado no carregamento da página: o `<video>` nasce sem `src` e só
-recebe o arquivo no primeiro toque no play.
+- **Imagens em CDN de terceiro.** A logo e as três fotos são URLs em
+  `horizons-cdn.hostinger.com` e `images.hostinger.com`, fixas no `HomePage.jsx`. Se a
+  conta do Horizons for encerrada, o site fica sem logo e sem foto. Baixe os arquivos
+  para `apps/web/public/` e troque os caminhos.
+- **Sem `og:image`.** O `<Seo>` é chamado sem `image` no `HomePage.jsx`, então o cartão
+  de link do WhatsApp sai sem imagem — e ele é a primeira coisa que a pessoa vê, antes
+  do site.
+- **Sem favicon.** A referência apontava para `/vite.svg`, que não existe em `public/`;
+  foi removida. Falta exportar um ícone da logo.
+- **Voz mista na seção Sobre.** O texto alterna entre primeira pessoa ("Comecei em
+  2022", "passei a editar") e a empresa ("acompanhamos", "a Inbre é a resposta"). O
+  resto da página fala sempre como empresa.

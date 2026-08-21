@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://inbre.com.br/sitemap.xml

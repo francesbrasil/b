@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.log
+
+# Segredo: o token do Mercado Pago vive aqui. Use o .env.example como molde.
+apps/api/.env
+
+# Binário de 31 MB, baixado por versão — ver o README.
+apps/pocketbase/pocketbase
+
+# Banco do PocketBase: contém os leads do formulário de diagnóstico e o
+# superusuário. Nada disso vai para o repositório.
+apps/pocketbase/pb_data/
+apps/pocketbase/pb_snapshots/
